@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کافی‌نت آقا رضا | درگاه سامانه‌های آنلاین</title>
+<meta name="description" content="دسترسی سریع به سامانه‌های دولتی، بانکی، دانشگاهی، پستی و ابزارهای روزمره در کافی‌نت آقا رضا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1b4b;
+  --ink-2:#312e81;
+  --paper:#f6f5fb;
+  --card:#ffffff;
+  --line:#e3e1f1;
+  --muted:#5a5878;
+  --accent:#ffc933;
+  --accent-ink:#3b2a00;
+  --heart:#e5484d;
+  --focus:#3b6cf5;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:clip;background:var(--paper);color:var(--ink);font-family:"Vazirmatn",Tahoma,"Segoe UI",system-ui,sans-serif;font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+svg{display:block}
+[hidden]{display:none !important}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero :focus-visible,.feat :focus-visible,footer.foot :focus-visible{outline-color:#ffd96b}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;top:-60px;inset-inline-start:12px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{top:12px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;background:rgba(246,245,251,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.mark{width:42px;height:42px;border-radius:13px;background:var(--ink);color:var(--accent);display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(30,27,75,.6)}
+.brand b{display:block;font-weight:900;font-size:18px;line-height:1.35}
+.brand small{display:block;font-size:12px;color:var(--muted);line-height:1.3}
+.mini-search{flex:1;min-width:0;max-width:480px;margin-inline:auto;display:flex;align-items:center;gap:8px;height:44px;padding-inline:14px;background:#fff;border:1px solid var(--line);border-radius:14px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:opacity .2s,transform .2s}
+.top.show-search .mini-search{opacity:1;pointer-events:auto;transform:none}
+.mini-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:15px}
+.mini-search:focus-within{border-color:var(--ink-2);box-shadow:0 0 0 3px rgba(49,46,129,.14)}
+.mini-search svg{color:var(--muted);flex:none}
+input[type=search]{-webkit-appearance:none;appearance:none}
+input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none}
+.favbtn{margin-inline-start:auto;display:flex;align-items:center;gap:8px;height:44px;padding-inline:15px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:500;flex:none}
+.top.show-search .favbtn{margin-inline-start:0}
+.favbtn:hover{border-color:var(--ink-2)}
+.favbtn svg{color:var(--heart)}
+.favbtn em{font-style:normal;min-width:22px;height:22px;padding-inline:6px;border-radius:99px;background:var(--heart);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;line-height:1}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--ink);color:#f6f5fb;padding:60px 0 72px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1.2px,transparent 1.4px);background-size:22px 22px;pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center}
+.hero h1{margin:0 0 6px;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:1.3;font-weight:900;letter-spacing:0}
+.tagline{margin:0 0 16px;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;color:var(--accent)}
+.lead{margin:0;color:#c7c4ee;font-size:1.02rem;max-width:46ch}
+
+.browser{background:#fff;color:var(--ink);border-radius:22px;box-shadow:0 30px 60px -24px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+.b-bar{direction:ltr;display:flex;align-items:center;gap:7px;padding:12px 16px 0;background:#e9e7f6}
+.b-bar i{width:11px;height:11px;border-radius:50%;background:#c9c5e6}
+.b-bar i:nth-child(1){background:#ff6b6b}.b-bar i:nth-child(2){background:#ffc933}.b-bar i:nth-child(3){background:#3ddc97}
+.b-tab{direction:rtl;margin-inline-start:14px;background:#fff;border-radius:10px 10px 0 0;padding:6px 18px;font-size:13px;font-weight:500;color:var(--ink-2)}
+.b-addr{display:flex;align-items:center;gap:12px;margin:14px 16px 0;height:56px;padding-inline:16px;background:#f3f2fb;border:2px solid transparent;border-radius:16px}
+.b-addr:focus-within{background:#fff;border-color:var(--ink-2)}
+.b-addr svg{color:var(--muted);flex:none}
+.b-addr input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:1.05rem}
+.b-addr input::placeholder{color:#78759a}
+.kbd{flex:none;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:7px;min-width:28px;height:28px;display:grid;place-items:center;background:#fff}
+.b-body{padding:18px 16px 20px}
+.b-body > p{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.q{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;border-radius:16px;text-decoration:none;text-align:center;transition:background .15s}
+.q:hover{background:hsl(var(--h) 70% 95%)}
+.q .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:hsl(var(--h) 80% 92%);color:hsl(var(--h) 65% 30%)}
+.q span:last-child{font-size:12.5px;font-weight:500;line-height:1.5}
+
+/* ---------- layout ---------- */
+.shell{display:grid;grid-template-columns:272px minmax(0,1fr);gap:36px;padding-block:44px 80px;align-items:start}
+.side{position:sticky;top:88px;max-height:calc(100vh - 108px);overflow:auto;padding-inline-end:4px}
+.side h2{margin:0 0 10px;font-size:14px;font-weight:700;color:var(--muted);padding-inline:10px}
+.cats{display:flex;flex-direction:column;gap:2px}
+.cat{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border:0;background:transparent;border-radius:14px;cursor:pointer;text-align:start;transition:background .12s}
+.cat:hover{background:#eae8f7}
+.cat .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;background:hsl(var(--h) 80% 92%);color:hsl(var(--h) 65% 30%)}
+.cat .nm{font-size:14.5px;line-height:1.5}
+.cat .n{margin-inline-start:auto;font-size:12.5px;color:var(--muted)}
+.cat[aria-current="true"]{background:var(--ink);color:#fff}
+.cat[aria-current="true"] .n{color:#c7c4ee}
+.cat.dim{opacity:.4}
+
+.r-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.r-head h2{margin:0;font-size:1.4rem;font-weight:900}
+.r-head .cnt{color:var(--muted);font-size:14px}
+.link-btn{margin-inline-start:auto;border:1px solid var(--line);background:#fff;border-radius:12px;padding:5px 16px;cursor:pointer;font-size:14px}
+.link-btn:hover{border-color:var(--ink-2)}
+
+.group{margin-bottom:46px;scroll-margin-top:88px}
+.g-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.g-head .ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:hsl(var(--h) 80% 92%);color:hsl(var(--h) 65% 30%)}
+.g-head h2{margin:0;font-size:1.25rem;font-weight:900}
+.g-head .n{margin-inline-start:auto;font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:99px;padding:1px 12px}
+.g-head .sub{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+.g-head .ico{flex:none}
+.g-head > div{min-width:0;flex:1}
+.g-head .n{flex:none;white-space:nowrap}
+
+/* ویژه: بانک رسالت */
+.feat{background:var(--ink);color:#fff;border-radius:28px;padding:26px 26px 28px;position:relative;overflow:hidden}
+.feat::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.4px);background-size:22px 22px;pointer-events:none}
+.feat > *{position:relative}
+.feat .g-head .ico{background:var(--accent);color:var(--accent-ink)}
+.feat .g-head .sub{color:#c7c4ee}
+.feat .g-head .n{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#e8e6ff}
+.feat .badge{display:inline-block;font-size:12px;font-weight:700;background:var(--accent);color:var(--accent-ink);border-radius:99px;padding:0 12px;line-height:1.9;margin-inline-start:12px;vertical-align:middle}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(264px,1fr));gap:16px}
+.feat .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:18px 18px 14px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-top:4px solid hsl(var(--h) 75% 58%);border-radius:var(--r);transition:box-shadow .18s}
+.card:hover{box-shadow:0 14px 30px -14px hsl(var(--h) 60% 28% / .5)}
+.c-top{display:flex;gap:12px;align-items:flex-start}
+.logo{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;background:hsl(var(--h) 80% 92%);color:hsl(var(--h) 65% 28%);font-weight:900;font-size:19px}
+.logo img{width:26px;height:26px;object-fit:contain}
+.c-txt{min-width:0;flex:1}
+.c-txt h3{margin:0;font-size:16px;font-weight:800;line-height:1.65}
+.c-txt h3 a{text-decoration:none}
+.c-txt h3 a::after{content:"";position:absolute;inset:0;border-radius:var(--r)}
+.c-txt h3 a:focus-visible{outline:none}
+.c-txt h3 a:focus-visible::after{outline:3px solid var(--focus);outline-offset:2px}
+.c-txt p{margin:3px 0 0;font-size:14px;line-height:1.8;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.c-txt .tag{display:block;font-size:12.5px;font-weight:700;color:hsl(var(--h) 60% 32%);line-height:1.5;margin-bottom:2px}
+.ext{color:#a9a6c6;flex:none;margin-top:4px;transition:color .15s}
+.card:hover .ext{color:hsl(var(--h) 65% 38%)}
+.c-bot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px dashed var(--line)}
+.host{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.fav{position:relative;z-index:2;width:36px;height:36px;flex:none;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--muted);transition:color .15s,border-color .15s}
+.fav:hover{border-color:var(--heart);color:var(--heart)}
+.fav[aria-pressed="true"]{color:var(--heart);border-color:var(--heart);background:#fdeced}
+.fav[aria-pressed="true"] svg{fill:currentColor}
+
+.empty{padding:64px 20px;text-align:center;background:#fff;border:1px dashed #c4c1de;border-radius:var(--r)}
+.empty h3{margin:0 0 6px;font-size:1.15rem}
+.empty p{margin:0 0 18px;color:var(--muted)}
+.empty .link-btn{margin:0}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(20,18,60,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(400px,100%);background:var(--paper);z-index:60;display:flex;flex-direction:column;transform:translateX(-102%);transition:transform .25s ease;box-shadow:8px 0 30px rgba(20,18,60,.22)}
+.drawer.on{transform:none}
+.d-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.d-head h2{margin:0;font-size:1.15rem;font-weight:900}
+.iconbtn{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center}
+.iconbtn:hover{border-color:var(--ink-2)}
+.d-body{flex:1;overflow:auto;padding:14px 16px}
+.d-item{display:flex;align-items:center;gap:12px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+.d-item .logo{width:38px;height:38px;border-radius:11px;font-size:15px}
+.d-item .logo img{width:20px;height:20px}
+.d-item a{flex:1;min-width:0;text-decoration:none;font-weight:500;font-size:14.5px;line-height:1.6}
+.d-item a small{display:block;color:var(--muted);font-weight:400;font-size:12px;direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.d-empty{text-align:center;color:var(--muted);padding:48px 16px}
+.d-empty svg{margin:0 auto 12px;color:#bab7d6}
+.d-foot{display:flex;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
+.btn{flex:1;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:500}
+.btn:hover{border-color:var(--ink-2)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.d-note{margin:0;padding:0 20px 14px;font-size:12.5px;color:var(--muted)}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:14px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+footer.foot{background:var(--ink);color:#c7c4ee;padding:34px 0;font-size:14px}
+footer.foot .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+footer.foot b{color:#fff}
+footer.foot p{margin:0;max-width:62ch}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .hero{padding:44px 0 52px}
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:32px}
+  .shell{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:24px}
+  .side{position:static;max-height:none;overflow:visible}
+  .side h2{display:none}
+  .cats{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:8px;scrollbar-width:thin}
+  .cat{width:auto;flex:none;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px}
+  .cat .ico{width:27px;height:27px;border-radius:50%}
+  .cat .ico svg{width:15px;height:15px}
+  .cat .n{margin-inline-start:4px}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 28px)}
+  .brand small{display:none}
+  .favbtn .lbl{display:none}
+  .favbtn{padding-inline:12px}
+  .mini-search{display:none}
+  .top.show-search .mini-search{display:flex}
+  .top.show-search .brand div{display:none}
+  .b-addr{height:52px;margin-inline:12px}
+  .b-body{padding-inline:8px}
+  .quick{gap:4px}
+  .q .ico{width:42px;height:42px}
+  .kbd{display:none}
+  .feat{padding:18px 14px 20px;border-radius:22px}
+  .grid,.feat .grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#results">رفتن به فهرست سامانه‌ها</a>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#" aria-label="کافی‌نت آقا رضا، بازگشت به بالا">
+      <span class="mark" id="brandMark"></span>
+      <div><b>کافی‌نت آقا رضا</b><small>سامانه‌های دولتی، بانکی و روزمره</small></div>
+    </a>
+    <label class="mini-search">
+      <span id="miniIcon"></span>
+      <input id="q2" type="search" placeholder="جستجوی سامانه…" autocomplete="off" aria-label="جستجوی سامانه">
+    </label>
+    <button class="favbtn" id="favOpen" aria-haspopup="dialog" aria-controls="drawer">
+      <span id="favIcon"></span><span class="lbl">علاقه‌مندی‌ها</span><em id="favCount" hidden>۰</em>
+    </button>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-in">
+    <div>
+      <h1 id="h1">کافی‌نت آقا رضا</h1>
+      <p class="tagline">هر سامانه‌ای که لازم داری، همین‌جاست</p>
+      <p class="lead" id="lead"></p>
+    </div>
+    <div class="browser">
+      <div class="b-bar"><i></i><i></i><i></i><span class="b-tab">صفحه‌ی شروع</span></div>
+      <label class="b-addr" id="heroSearch">
+        <span id="heroIcon"></span>
+        <input id="q1" type="search" placeholder="مثلاً: چک صیادی، دهک، وام ازدواج" autocomplete="off" aria-label="جستجوی سامانه">
+        <span class="kbd" aria-hidden="true">/</span>
+      </label>
+      <div class="b-body">
+        <p>پرکاربردها</p>
+        <div class="quick" id="popular"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap shell">
+  <aside class="side" aria-label="دسته‌بندی‌ها">
+    <h2>دسته‌بندی‌ها</h2>
+    <nav class="cats" id="cats"></nav>
+  </aside>
+  <main id="results" tabindex="-1" style="scroll-margin-top:88px;outline:none"></main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><b>کافی‌نت آقا رضا</b> — لینک‌ها از فایل بوکمارک ساخته شده‌اند. اگر سامانه‌ای باز نشد، ممکن است آدرسش تغییر کرده باشد.</p>
+    <p id="footCount"></p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" inert>
+  <div class="d-head">
+    <h2 id="dTitle">علاقه‌مندی‌ها</h2>
+    <button class="iconbtn" id="favClose" aria-label="بستن"></button>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <p class="d-note">این فهرست تا زمان بستن صفحه نگه داشته می‌شود.</p>
+  <div class="d-foot">
+    <button class="btn" id="favClear">پاک کردن همه</button>
+    <button class="btn primary" id="favCopy">کپی لینک‌ها</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = [{"name": "بانک رسالت", "short": "رسالت", "icon": "bank", "featured": true, "blurb": "افتتاح حساب، اعتبارسنجی و وام قرض‌الحسنه‌ی رسالت، همه‌ی ورودی‌ها یک‌جا", "items": [{"t": "بانک قرض‌الحسنه رسالت", "d": "سایت رسمی بانک؛ معرفی خدمات و دریافت سامانه‌ها", "u": "https://www.rqbank.ir/", "h": "www.rqbank.ir", "i": ""}, {"t": "ام رسالت", "d": "افتتاح حساب و ثبت درخواست وام رسالت به‌صورت آنلاین", "u": "https://mresalat.ir/", "h": "mresalat.ir", "i": ""}, {"t": "پیشخوان مجازی رسالت", "d": "کارت مجازی، دریافت رمزها، استعلام چک و خدمات غیرحضوری", "u": "https://pishkhan.rqbank.ir/", "h": "pishkhan.rqbank.ir", "i": ""}, {"t": "مرآت", "d": "اعتبارسنجی آنلاین قبل از درخواست وام رسالت", "u": "https://imerat.ir/", "h": "imerat.ir", "i": ""}], "hue": 250}, {"name": "وام ازدواج و فرزندآوری", "short": "تسهیلات خانواده", "icon": "heart", "featured": false, "items": [{"t": "وام ازدواج", "d": "ثبت‌نام و پیگیری وضعیت وام ازدواج با کد رهگیری", "u": "https://ve.cbi.ir/", "h": "ve.cbi.ir", "i": ""}, {"t": "وام فرزندآوری (تسهیلات خانواده)", "d": "ثبت‌نام تسهیلات قرض‌الحسنه‌ی فرزندآوری برای هر فرزند", "u": "https://ve.cbi.ir/", "h": "ve.cbi.ir", "i": ""}], "hue": 270, "blurb": ""}, {"name": "پیام‌رسان‌ها", "items": [{"t": "ایتا", "d": "پیام‌رسان ایرانی؛ چت و تماس بدون نصب برنامه", "u": "https://web.eitaa.com/", "h": "web.eitaa.com", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACMElEQVR4nKSTTUhUcRTFf2/mP5EwpVhJYH60KRExIwJB+kALdREtKoKiFrWRioqWFS2CKIJAghYtstq0EvugaBNki8gKQRyYsg/LpskmMp2cSckZX/e9+2aeY+06mzvz/u/cd87532sQ2McbSggFj2LRjk2F1GKwwhTATslZUs5iUh8yk71sdQ5MWB75KZZVy3wEQ1BZB0tWQHoCPg7A1KTXz45KkyajX55HDgRg/XZoPgAly/3nUz+h5zwMPsLlCNe4sucitBD2nIPajX8Jomgx7DoDIxFIJnC4xvOssOTHztNKtm0Yfauyp9NQvhpWNcKCIq0v7+JwjQbmYd02aGiF1LhKjfZqoxyaD0Jrh/9fuIF82kEDLeI58xuuHwMjAa5cW2jhlwQ5OysWBnMdwiZ/WCFpl5bD8x74/Ap2n9WmvTdh/CtU18OGvfDiNnz7kKf5DZzrcjDUp/VHHGqaYMcpvGuD/gdw75LYbJOmX1wlgXyDcKmX9CKtb/p86fEhuHEC7lyA9iOweT8khnMKZMKcHCbH9OVN+yS8J1C/Rfxm4X4nPOtWhYe6oLgMrkhW0ylHVsp44xl2v2hLQGXV8uI1iEXh+4hcm8xFx1VtkJmBLgl4LObZIhlwZ9tB4j1EHuvBsioNMJ2EtsNQJQFmM3DrJAz3z73GmHEXw6LRfdAtySMq6lpgzVZ/BuKvxf9F+BShAML99zItrZTJq5GdCKqy0Xdqr4Csy+QO8f+s8x8AAAD//8qs7SEAAAAGSURBVAMAvfjITwft3gYAAAAASUVORK5CYII="}, {"t": "روبیکا", "d": "پیام‌رسان و شبکه اجتماعی ایرانی، مستقیم در مرورگر", "u": "https://web.rubika.ir/", "h": "web.rubika.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADH0lEQVR4nGyTW2hcVRSGv3X2OTOZc2aSTG4TZxKCV2wl1abQqKGGUNCglKLQIIIPvlRBrSj6or744oMPQWuFqPRJX5QKVdpaL4gP0RBpQVuLVItYMck4k2RmTOeSOZftztCWNnTDPpe91/r/vf71b5sbjOO/0h+FPFM189QyUo+Y8WHmg0mWNsda1/7o/bhnjzMVBXym4TXRZMy7D82rSttHxr55eIr8L961OdJK3Ieil/sM3EvNLUwu3EbiYhoKCuZXhMUgy7lgnD9SE/VG7paT6GiaO0pzyFQoek/WZTD/Clb0vMHq5nbz7IW6Def7s7zZ3MWxtRHq2iymDXmu25xbVmLr0aHh2cZb6vWeeyd0052WWCMtThO6DEBnEmfgcTJbD3Jr9gnKYZw/L1Xw4zbS7pL9q+ZOfJ7fvvP7xXlbR+omvTzoUulBdy8SjWSIjb0MmQcRK84Og3d4+xj7skO8ff43nCMLjMyVSJWarhbps62WDpGsBF2cLm7TvclHZUt6lATOVYXjYrE3k8OZK/LF0TM65ohoJRgAsfOk+Ful9WlrgFVxZTy0+a9coqZsPM/Dtm1839+QGgkiCoGWcmRa46D77FDbb4TDhisuacPSZvoml1mbzSZBEOC6LoYIpawNiNZs13XuD/JyT1QWuxg6EGrKQUiPY9EwIVaL77I3tEkx4FoUHnUmrQUeUosMShXREbbZ1OZDly3FmS5P/xSE8tRand2JmCluwylG+bCKyp9ktPI+Y7myVitZiYI4oYGwfVuWiqlE7UJ/e8dqKi46jPg5X2E80cbT6Ti7a6dwL86glr+DWgMGjICdeaRwc82qdBfspb6O2bPZxDtNSz1HywVCQwtza+dov/SpzsnXbC1VJBle8a4pKVVaVV71PS7c+YNa+v2YH+45MEt97UdTaDox6A9tSx51dvnT5PS8eJ3rstphGm2ESZapqyInjEgv0ht+LIf/XZfrrtaTX3kP7D30yF3elwcsgtE2hb3TODdhOmmI54f+4eDwJ5yQj6hed5k2jxe+JeMH7PcUz+4wAK7i3QA+fOxuCptj/wcAAP//7rHZvAAAAAZJREFUAwADvTO+seNSeAAAAABJRU5ErkJggg=="}, {"t": "بله", "d": "چت، پرداخت و خدمات بانکی در پیام‌رسان بله", "u": "https://web.bale.ai/", "h": "web.bale.ai", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC9ElEQVR4nExTS2hVVxRd+5x778tLfYHU2tYQLLU/qIO2tB1IB2nsJBVqKQU7aGkFCyY4FydCBk7EaVREB+pMQfxjxE9UcKCighFBRCIqifETNOa9vPs5Z7vOfT7xwnmcd85eZ6+99toRTo08RGynIViD/qFbOLe9D5B/4eVnFPkS7gXW8F7GYLGbMefR+oRLBaMjikrMrX8Ip1d5+BuSOEaaAV71TaggSfjfFRCzC8+mNmD18FzranTEQRlojUWFQY1mOC+4DLNK+QDvjYiH8qx7gfH1xjk8199xe33DlIHGGGbzmE+ZQRjGx0QM2lzFiC9y64sU/ulMivc6V+B9swXDLJQMfLseQ4xhWY6EVEv6Es58Nq8rF3+B1Yu/xP6pO3ryyYRHtUqE64sYKW/SwOdN8d4pogRGbEisLm3g795lsu/bgVCG/PHhUiy9uAfPoRHzD5qSshil4vhpYa9u/roPn1W7xLsMLq1LCf7uV3UhETlNZw1khTPIC+JABoE9xV1Srcmx71dpd1yRf3q+wsDlg1hW+wB7vxmA805iyjKV1vXPGyfwqkhFyFLzoifis+Sslk3QqomQq9dPyGBs+V/oitheEozRAg9cOYLxl7RE0lE2juydUWsmJalgYm5GB8fPIKZouXf4OK4i4d5yTWUBfFhuvnwMm1RpGR/aDkT2fmjVBY0oWFzxex+MY+3N0+UjyswRaT9qBvAhgqc1gB1C0/gTk7zXUYs1K6cZ/R9dBhMlcn3mkdxv1tG3sBcTjVlZde2o3Jp92gLTKhQy+CRIl6LI1rdaeHbHdnRWh/BilurYWCnSoo4a5inuHM1jqEXpai0NkqO7VkEj3YxfBjdZusng0x/PI+tYjlrn52im3tjI1/NMMlITG7VqDrRD47q7YtTnR3HPDOKH45C2XXFgeAEW9WxlKf+DL0iWt92IcibCwDmf0TM7cXdyI9YNN9oj+XY0y92Zbf0cj7VE9xPwUeANG02ynWO05y6sGLqEd77XAAAA//+aT7ciAAAABklEQVQDADxaZEr6LIE8AAAAAElFTkSuQmCC"}, {"t": "شاد", "d": "شبکه آموزشی دانش‌آموزان؛ کلاس آنلاین و تکالیف", "u": "https://web.shad.ir/", "h": "web.shad.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACNElEQVR4nKRTS2sTURT+7p1Jpq2mduwDbC20UKQ+CIoLBUHoQkXBFirUndBVcdOVIFb8B6I/QKUIggpm4UJQuqiIKLgQG18pRtT4wKbQ2BgTksnc47kzmUmjpYv2DHPvPefOeX3nG4kNirlS2Zx+1BUhd1wSxQkUUWwjXoh3V5KjlEgaZmS6MHAsG/iI4NCWfjhkkEpIgq11z5kfRfpMnq5IW5BzoE5VB0dmwwA6s0VuyiRhS+Fn1I5b3mRQZcPSzu4wgOsHy1VMaxBcidQBLK9seM4GJL8CzfPf8PjAMGb2HIH1KRvWK/zNjlbL43UMuGdtplrZXs+bmvAx8xWlchmqxfIDUAN+8TCAD5iA4A9ksYQz7/9A66fb30K5hLP5ZmS/LOLWPhtkypo/RfQqVwKm+5Ppn7hwYhhTx09C5EuI5gq4ODKKcwcPI7LwC6uOUY9K6f64hOKuHow9uONdFvdu5zuF0cRNLDNIzu7Of7qoVeChzmv0ww9MzdzA61YgI5Zx+dl1TD6/h5etCt+NIq7MXkPT5+z/FbhSOIJHhFIFE4fyGMvfRqyDuRHTt78xsXgX1lZO1A2cz7kBhZw6BoqSesbF/i5cfdGJbe086ILA0af7MfmkD7EWzmQAl+b6UO7tCJInG4jkVispBtKW5Sr6595hqc1GbkevHjF6Xs3DkQYW4gMaKI+NAZFCKpup+0MSIqFJgjVEOzNejVQOhSupMSwezLkuXs9JzjyN1X6m9cpfAAAA//+dN9cCAAAABklEQVQDAGGN9kNxJiXKAAAAAElFTkSuQmCC"}, {"t": "سروش پلاس", "d": "پیام‌رسان ایرانی؛ چت و تماس در مرورگر", "u": "https://web.soroushplus.ir/", "h": "web.soroushplus.ir", "i": ""}, {"t": "پیام‌رسان گپ", "d": "پیام‌رسان ایرانی برای چت و تماس", "u": "https://web.gap.im/", "h": "web.gap.im", "i": ""}, {"t": "آی‌گپ", "d": "پیام‌رسان ایرانی برای چت و تماس", "u": "https://web.igap.net/", "h": "web.igap.net", "i": ""}, {"t": "تلگرام وب", "d": "چت تلگرام در مرورگر، بدون نصب برنامه", "u": "https://web.telegram.org/", "h": "web.telegram.org", "i": ""}, {"t": "واتساپ وب", "d": "چت واتساپ روی کامپیوتر، با اسکن کد از گوشی", "u": "https://web.whatsapp.com/", "h": "web.whatsapp.com", "i": ""}], "short": "پیام‌رسان", "hue": 290, "icon": "message", "featured": false, "blurb": ""}, {"name": "پنل اینترنت ثابت و مودم", "items": [{"t": "شاتل", "d": "مشاهده مصرف، تمدید و خرید ترافیک اینترنت شاتل", "u": "https://my.shatel.ir/", "h": "my.shatel.ir", "i": ""}, {"t": "آسیاتک", "d": "مدیریت اشتراک و تمدید اینترنت آسیاتک", "u": "https://ecare.asiatech.ir/", "h": "ecare.asiatech.ir", "i": ""}, {"t": "مخابرات ایران", "d": "مدیریت و تمدید اینترنت ADSL و VDSL مخابرات", "u": "https://adsl.tci.ir/", "h": "adsl.tci.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACV0lEQVR4nIRTTWgTURCeedmwCU00qWiUwkZE0oNehao9KKgXT1JQT6KoIHgMFLfmYDHEYMWriCii1LMeFMWDggfBg+LBQrFCTGzRQ42JNU3M7hu/3aw11Zq+sHlv58183zc/a1CPtaX41WoLnyKh15Wx5P2VfPjvgKZhNAxHvy+fSyQ9m1WojhNzFsc+IbpVsRMnSYRhkz8AMGye+JFytZNl4Q1Csj5EcrlkJ59716mJz32mE1kIeBZd5WZmR/tnPZAlBdal2gu85VnkMQBOKGJbiKcDgkVQHe4S24611samLvBPo8s4r0Rini4lVAdYBpGZfxP1l7Fg1u5gP6o67N++YysheCsK9kqYh6j38iCP+AerUN/NpHeCcT/eD7iiBkOsbwDoITObSCcKu+1nQpSDuhZ8Q8jf5LbcRQpcBZ73uyla50NM77TIPgR7Et9ivy7iF/wlaB34jXaw5JMYzIawewiGEZg2MYc0LnKKVR67RcJnhfVx3M8A1FbMT0XUXlaSRmEHXO0+MdCuSZfIhJIWuuJCShiMw75k1ntYy5QofgPN446o7UhvGoIeYQqeKTbiHBRRVikawOgKVA4z0wMQDIDodNlORFRwPdnJq0fZ0R2wDZGmGSaV9oL9fnp/5VbimGXWRnCMLDEK3UPBogpUOA8CYI03dnjqMKS6++mPcrrQ2Ciq7U1ePLjrB0vVO6SL9V1COg+NH+DccMKhi3PZ+PyyUf69UI9r2M7gaYL16sexxPnA/sUJq23UbEfncusqyxWssNLF2kERvQNFuo2PqvQ/v18AAAD//753KZIAAAAGSURBVAMAPacAukOgWmUAAAAASUVORK5CYII="}, {"t": "مخابرات من", "d": "قبض و خدمات تلفن ثابت و اینترنت مخابرات", "u": "https://my.tci.ir/", "h": "my.tci.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACqUlEQVR4nIRTTUhUURQ+57w3zowjKSiZZqGJ9rMwFYkwzCyjiJZhCxcRgYswau+uTS0KbFEErYuCtmGYGChYhjZokaSZpOMoJf6U2owz756+62iMbrxw37vn3POd+33fu8+lbWNgPLo/wxO3onzP9/BopJLZuWOIlpi4Syj5+mhZUSS9njcXfVNTwWDMvahEeaJ0MmDcluVdCU9WpJFJr6HkHOYXIB4sOrEXDSUlMYsT+whPTOT44049Nq/gpHJlzf3rS9YF5ueTZim/Q5jbUDaLWcVKj3O8wO2hodmQxbrrXeIZ+ezwTSUNg1IVUpNqtD3hz41KYFZUyYdcrq0FwwAet0wmLarqXXdoLFLkER+zcqweZfLAIoGiMoRlONGCtg8fsbYOj870ortzFoBGwF8BXQfAoFEqp52GUoERvuoqcwXCOKs2w5ER0FpAwxEQGoYkFwYGsL6MmiDmMwB/gqkftT4yOg3DNY6NFRj4kgzNKfFxyJhA7pSwGiZ5h3UmgGFVHsTaml24jmPOsV8hhMDAqBpsnGDWbshoAsdKAEbRoQQ1APJT6K4l0T4cYuM1ePNHhMlSFnSKINFDhmsBqLasEB8SNVZGN5oXC2k/qeSh+XkwyrLTxcn4bGovUOpW/b9aBCC16maCTRcAMbBFA3pupTDzRzGsDxHM7WQ6G4bBXAG2PQgv4Zt3eGI6Zby04A3OeISkl1a/mtJN/dh7j/c4vEgRVCPWecdwb01p4aQ0MXsxyrjPKSbxDRW/2dD1LFquT4b0DK5yCyvvhYFjKnTEE71H/vjCRm1qDESjmc4qNYPmDSQPY0KzPnHX3M5foZVkthdsh4mfQeDr4vTutw0NnNzSYHOER2aK8YdcwMZp/FTZ7HFb5cGCD5++Te9LCEv1gcIf6fX/AAAA//9b3J9oAAAABklEQVQDAB7XGs3bmiyhAAAAAElFTkSuQmCC"}, {"t": "پارس آنلاین", "d": "مشاهده قبض و تمدید اینترنت پارس آنلاین", "u": "https://onebill.parsonline.com/", "h": "onebill.parsonline.com", "i": ""}, {"t": "ایرانسل من", "d": "شارژ، بسته اینترنت و مانده‌ی سیم‌کارت و مودم ایرانسل", "u": "https://my.irancell.ir/", "h": "my.irancell.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB/UlEQVR4nIyTvWtUQRTFf/Pe281GQwwa4ioiFoJiZSxUVOyEEKzt/B9sLQUrawsrESzVWkHRQgQxixC/mrgqSohixPgRNm72vfHM3HkmVeIslzc7c+65X2cK32GOjP1U+oFLttHy0Zy8PF3nn+tTRjf/H85rJIEih0Jxw7aO7L3fmMTVgQJKvlmksyNfybms0n8DRwtLd1RV/AZnX2OKiBOoHODyBmQjkRkGslUjczrPmynHFWH7wuYWowiAYPlWWPwC9+/Cow58WIDvPxRBwLFRGB+DqRNw5hhM7FaM5ZRh+Ux1DMHte3DxKrz9JMB2aMvmv8LhA/BtCZYVeUsLln7BlQtwbkokOnPVS/zsKzh6Xhkr7YP7YPoktET6p28Ou8Zh5w64dgded6Ghwh9fl88R6wF1GfV+VH3ovFEJP9UTtXlFRG2RbBtZw/jK9pnvweQhuHkZ9kwY+POiXTYbZu/m4dYDmPsIe9tw4xIcnxRJ6EM1E+eKG4YFAR/OwNMX8GQW+gOLNtw0x+lTcPa0sglN7CXZSsqRoCzTqFo2vqjOMqknjGwo5CvrxTGSZzbWolZfXqisVWWky8xZ7f+WiKrfJqZwF7DqQZiiL2rFBUHLybsk5bqp6yRM7pKUvYnPlJjJYd1jcps/Jwtnj8llkm0XS9cn22wZLvhUvP8LAAD//6rYXdwAAAAGSURBVAMAdx3GWzVtO9wAAAAASUVORK5CYII="}, {"t": "همراه من", "d": "شارژ، بسته اینترنت و قبض سیم‌کارت همراه اول", "u": "https://my.mci.ir/", "h": "my.mci.ir", "i": ""}, {"t": "رایتل من", "d": "شارژ، بسته و خدمات سیم‌کارت رایتل", "u": "https://my.rightel.ir/", "h": "my.rightel.ir", "i": ""}, {"t": "مبین‌نت", "d": "پنل مشترکین مبین‌نت؛ مصرف و تمدید", "u": "https://my.mobinet.ir/", "h": "my.mobinet.ir", "i": ""}, {"t": "های‌وب", "d": "پنل کاربری های‌وب؛ مصرف و تمدید", "u": "https://ecare.hiweb.ir/", "h": "ecare.hiweb.ir", "i": ""}, {"t": "پیشگامان", "d": "امور مشترکین پیشگامان؛ مصرف و تمدید", "u": "https://panel.pishgaman.net/", "h": "panel.pishgaman.net", "i": ""}, {"t": "فن‌آوا", "d": "امور مشترکین فن‌آوا؛ قبض و تمدید", "u": "https://crm.fanava.com/", "h": "crm.fanava.com", "i": ""}, {"t": "زیب‌تل / پتیاک", "d": "پنل مشترکین زیب‌تل و پتیاک؛ مصرف و تمدید", "u": "https://panel.ziptel.ir/", "h": "panel.ziptel.ir", "i": ""}], "short": "اینترنت", "hue": 310, "icon": "wifi", "featured": false, "blurb": ""}, {"name": "امور دانشگاهی", "items": [{"t": "سازمان سنجش آموزش کشور", "d": "ثبت‌نام و دیدن نتیجه‌ی کنکور و آزمون‌های سراسری", "u": "https://sanjesh.org/", "h": "sanjesh.org", "i": ""}, {"t": "سامانه سجاد", "d": "تایید مدرک و امور دانشجویی وزارت علوم", "u": "https://portal.saorg.ir/", "h": "portal.saorg.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADUElEQVR4nFRTXWucVRCemXPej2x207pJdpNtbTVNcKsmsiZUREyDMSpetYJU/QF6IXihWLyx7kWprZehIPZChBa88EovDARE7YWCFLPGJjQN0dUWNHHzsct+vR/njLMxlvbA4X3nzMxz5pl5joa9NTp6dtJaOEAEMTOitbYNCj1AsQzKCegYKCJrSM7RIWo1GuFV1Ul+qO90yu/tOus69A8zuVrb/VrrV0jRHxowqzUdjmPb8DwsSIJjEUPxPaMV1HQHgNMJj5Szeu2ndy/+X9F44XzPws/vXSoWr7tzc1/mh4cXb2xXjs1sf7s6X4JL0djYuaZc5u0CELnMNpb/op4Se+lh8KVq/+nCuf75+bnnjaH+tZuj+dR+VpsP5LqhDDtCqUtCW/QfQMjWgBWA+DvZzg5YccRtrcaCIN5QCsNUT/IwWlSZjHt08skPC66rs8bEoXp9/BOnnVYjURAPjY69cCPX99wRpmiHiI5K6/Ke76ymU1yut8wgMlTCmJPS0aEgsB0KdfoVtx5tNkMdW7PO7O6LFD2+vFysK6V7SfOyadUr61v2eLNZ+bQZ4p8EOIWoGlJV00j16r7e6QcR+VVESlpLP5jYUC43fcoyzBjmFaUoa9F5RKvkWhBUt3zXd1DxdRnumyaOv1cbG9/c7u+fPoiKXgM2eZm/rzWGsaVJhXCQSf3uEm0zmLwGT3RhHLaYkQvuDwJa3NXB+np6cXBgIJHNdhdFIPss0AQpLFvmsjU4Exn7t7E2ZIADFrjLMqZEF0tEWN0d46FDR3oEqWqMfaLeit8PhIYC6qhvJQzaby8tnfkF7l04MXHh2VYUE3as2dlZ78qV9jsWMBFaexmj+KlEwh0WWZeaLXMSmL5aWDj9+fj4hRMimFuuiyfC0E7LfqtDAWu14zNBYH6LjGGI+LFMxq8PDCT/qlbrFcdxbopWc+n0lHE9+kBCTnXeilL8NTh0u0OBGw1bk6a8IW9kU/R0LWwbr1YLhsKQurs8OGaMWdYOvgSx/Yw0aN/Fq+12eKsPZCJ38yoUzgs6JwU9AlIvCoUVNjwSGPjYRx6Upo5scnixXCru3Em66ytNflkofdHRBxQKH51hNmsCsmmsOokQ/VgqlS7v+ffiAf4FAAD//3xuY5cAAAAGSURBVAMADjig1SR7MscAAAAASUVORK5CYII="}, {"t": "سامانه آموزشیار دانشگاه آزاد", "d": "انتخاب واحد و دیدن نمرات دانشگاه آزاد", "u": "https://stdn.iau.ir/Student/Pages/acmstd/loginPage.jsp", "h": "stdn.iau.ir", "i": ""}, {"t": "مرکز سنجش و پذیرش دانشگاه آزاد", "d": "ثبت‌نام آزمون‌ها و پذیرش دانشگاه آزاد", "u": "https://azmoon.iau.ir/", "h": "azmoon.iau.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACtUlEQVR4nISSXUhTYRjHn/PutDN3tp3NbU6d8zA/GgghLgq68KIoKr3KmBcVWAQR0Y0FKhQoBINKLwoxTIW8KAODIMIuiiz0wpI0rGZruKWuTfe9ua+zc7bTBk1sE/xfPs///3uf5+HF4Z9UXWOVBk3mMkLR0ZnOTjfsoq67XdJvGX2HdU320/7o/LtcDeWbGS8mOCqj2s9qK0dPDg4aC8Nas1mpqm6610orb9HqiCBf3wYEqLUtZzS0UkVKW87odCMdQ0Ot0NeH53oXssDeurrxWkp+JZyMBhEK2fI5fPsJEicxTqj74nKBQaU0nqDpJzhJ3o4MDLiP6HS9amGJ8asjCdEUrkCOxopswv7fBDXcVpSSs+va0lJYDgaByPAqxiPuX3Mrn1IpZFzedAMl5IAoIYNWQdxdtALvq5dH/Mp6bzAOTUo1vLXE4OVyTDLvA8nj+QBUkBJI4SGIxr0VlDhpKALQEcZfLQnbahQiWPcBvLAxEGMFkEkLYHaDh1kHC1pKAXVqqV2mdP7I57av+dsylSpvPmgloazqvZOt+R5gEOIxRoD4WDpFiFiOA7qUXVgKBbpf99xczOcwKFCTaUrNVbqf27fQsWSC4PB9bJrjcEJPMd56SdL05v61jzv9qBCwONniv34Ac11tlIOGQDiOgGhrEMHFw+JoggyvFvpx2EViYh92uloCGUHYZwtw4UuHpLWeRBwTrTJFXrQbAMvqTyIe2cRjPWEics7hySym0zwGBOwNMJkAC4SYtMUWHXu2MTk+033j86fVzTt2vy8izf61PVc4rhhG086IfT0BE/DgA5erGdTJuQWPdzrO82hPwMSv/Xy8wWr3lrlok9lc3qbX23QajXTY53vl5biiIxSNlFPfw/4GP4s1KzBMkpDJ5pb8fuEpmt4YQWjF0t6e2un9CwAA//8jZFCMAAAABklEQVQDAISGHGZzR7QAAAAAAElFTkSuQmCC"}, {"t": "سامانه گلستان دانشگاه پیام نور و دولتی", "d": "انتخاب واحد، نمرات و امور آموزشی دانشگاه (گلستان)", "u": "https://pnu.ac.ir/", "h": "pnu.ac.ir", "i": ""}, {"t": "سامانه هم‌آوا", "d": "سامانه آموزشی دانشگاه جامع علمی‌کاربردی", "u": "https://uast.ac.ir/", "h": "uast.ac.ir", "i": ""}, {"t": "صندوق رفاه دانشجویان", "d": "درخواست وام شهریه و خوابگاه دانشجویی", "u": "https://bp.swf.ir/", "h": "bp.swf.ir", "i": ""}, {"t": "ایران‌داک", "d": "ثبت پایان‌نامه و بررسی همانندی متن", "u": "https://irandoc.ac.ir/", "h": "irandoc.ac.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACeElEQVR4nJRTz0tUURT+zrnvzZijZhihlAkVKsZgEdRSXNSiXEUSWNCiP8GI2s0iMCKCKAQj2rQKRPq1CSJaRL+DZEZdRBJGsyhqlFEb5829p/Oeb9AxWnTh8u4975zvfN9372XUjAzjPwdtWAu6zjdyYseQsDdAqHRBxAn5Obbl+3a59AizFxbWA5j4y1Fx95U+qtv2jLz6IXIlXxFzBC4A7iD5zWfEuAS+H3oKdHrABxcWenFnh73X+9lLPhG4t26lcAxTw5M1XNOju5D9NacyXZRfI2HnyBZubsjqTlkHEyBSmtKo9JUhCZgqEAp0X9S4gIxxucKIgpW9iH9T4iyRv90Gi0fZeJe0qIMgK0JCq11IhDmpdmRF5LGpa7mKHjeFaYxHrqtJxzX/DfKLr7QkT0TvNDyphdFUiI/qxXvF+4rc7RtS/vmNPToRezBoSGynCN1DMhWwoNUReUa72ri/EYgN5VBo+rSGeVK96ooBfmhDkA2NMUuqb2uRQZ76IIxVCSB2TGRU/pLFICIThSg+vucVrZxVjDQCsP4pO3FWm2ocQTjjdcWJZiDla/e0Qn+unj80/yH7TX1o2XxEwVNKqU0Na6V4itg2FdSumQbd3YfJpDokCB5U7wFQqoyJX2qHL/vVqCmVv0kJJrSrR+FREFk1ep6kVEeJhlGxy5+wUBzfeJXXht4LzF0s1MQ6L/fSpsYxYtPrSkv9mBl+HdavA8gom4zl9M275CVPwf1+KdZlI5ZsDsDU74Nbybtg+SSmz72ovp2/GfRc28NsTmvRgPq2W1+II/Zm1KcJVyzcwZfMfLX43xLWWCWAvCbeCtbFOH4P0fgDAAD//4CKZuUAAAAGSURBVAMAJlQY7QQuG3wAAAAASUVORK5CYII="}, {"t": "وزارت علوم، تحقیقات و فناوری", "d": "اخبار و خدمات وزارت علوم، تحقیقات و فناوری", "u": "https://msrt.ir/", "h": "msrt.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkUlEQVR4nKRTQQ6AIAyrg5N/8Gz8gf+/+AU9+Q8TosFkBhsnIj0NtraDgaAS3kr0zu3pegmheaoTi5QS0piFJU3EQi5gA64RTlitaics4jvnJvxEFPEtMKIC5xHWEAYUQjnnGDdgRiGUc12iJnJT4Fjebj2HyBXeYCd2ZMPbC3sTYAONzfa//oUmR7S6MAVKcQAAAP//Zwg1uwAAAAZJREFUAwAvfVjVlsHeAgAAAABJRU5ErkJggg=="}, {"t": "سامانه فرنما", "d": "امور فرهنگی دانشجویان", "u": "https://farhangi.msrt.ir/", "h": "farhangi.msrt.ir", "i": ""}], "short": "دانشگاه", "hue": 330, "icon": "grad", "featured": false, "blurb": ""}, {"name": "امور دانش‌آموزی", "items": [{"t": "پنجره واحد خدمات الکترونیک آموزش و پرورش", "d": "خدمات الکترونیک آموزش و پرورش در یک درگاه", "u": "https://my.medu.ir/", "h": "my.medu.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADC0lEQVR4nJRTS2hdVRTd+5x7zrn33e97N+nLaxAsimKLikhRC0FbO1CciLQZqJ0IUrQDaQdOFHxWVMRRZ3bgSFF8HUWKH+ifQvrLoDT9paGkn7RN+kuaNsn9nLN7701TOitdcDmHc/daG/Zei0GFNoMHeGXr4ZcX79CmhXciLI+3d9Fzb3XIq946xMsDH9a2O/LXO40fRaO5wVbsr5BPfzm4ZdXc4v81+2gDKPjBJDDKc9i0ey2eKpSxEnDX/v6ivVT9gl64Skggp9mLbhgcdhRuDPzaWOJ4P6MrPtUZAVdYdKUbFsPNfX3f/oHx5q96Zy/Eg2kWP+VHIlNhyKTrGmdJSwhH3VS+OymjxgugU81tSaQNWTVLYJ7B9LGhj62b+dWu196Iu7smuP7vfMq5nYFla8xmpnJEP+ZKxjB1K5Oug2QMCMcS81cm0pF/D4iZifHnLbB43tUdZ+8ui+xZeZlOX09Ra2Q6TXX55fNzwJFQU8HkHG6fOKXHDh5lmilwlzQTBg5HPwqw1eg2K5c3sFEf/a1o9CdIj+ssR5MlOSjP4oyfmxu7+PX48bOpqIfMazVRhQFj4EowrkQWKENhSCzUFye3rflQ6uQbRCtj0leYJztd3+67fe7sgLu0pZwoMirwwCnrodGEW8VGz9MczipE4wVOuZnR717farHsA5YmXzyzc9P7xdomgqeXNZzAL8loRyHIwEcL0nuwoqeH1vU+C8NT02bkxrW8WDC8un27GNq48p9SbBgqI6FwxjMpbcNTxXjNB0gEWFCXMM8IGUMdxqHMPVU5baheN4W7GJxcjrACCNpo7GhGGMNldndqXng+J8ELAcMokDJDz3O3DR+ZvJTmf1fWW7/eACJV9x0LbmQ2jkgQ+6XXetMYIsNAFzPogYOz09FnZ47u37F3YPXouo/+r6oXyY9g33veNVmz3rFt+MmJEWXNdlAeGngpJeyHLZ9/T4OXE2y3y2AYeAxW76FPTGZshE6HU39/2Y0KMj6eXAy0XcShmEmZ0oU0ElQJgSdBGfVC5D4AAAD///SY7aEAAAAGSURBVAMA3FEvppo3F3gAAAAASUVORK5CYII="}, {"t": "سامانه سیدا", "d": "دیدن نمرات و پرونده‌ی تحصیلی دانش‌آموز", "u": "https://sida.medu.ir/", "h": "sida.medu.ir", "i": ""}, {"t": "سامانه پادا", "d": "سامانه‌ی پادا در آموزش و پرورش", "u": "https://pada.medu.ir/", "h": "pada.medu.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACLUlEQVR4nHRTzW7TQBD+vF7nx3UhBBEph0APXHPrJeLEiyDos3DkHeiBp+AlcomUHJAihbRFKYlInR/H9u4ws7aTSpTZjHc9nm9mvpmNIiKv0tFo9H6329FTutlsaLFY0Hg8/voY4y2XS2o2mxDZ7/dot9t4SowxTqfTKcIwvO71eldi9+I4pu8/EszXKVo6xYd3F0jTDKt1/E8AkcWvG9SCANba636/f6XFOP+Tsh6AyOJ/opQSEF687KB1fobtdvNxOBx+cwEsCDkR1knunH1fIQobDPK5Rv5uisAki4CAK6jVG5hMJsoFEKPlh2hRrkW83TtHxjtK4mIJSh6t5+c20NrROlbAFSLwvTJTKUTuzBjZVRHf+Sg55rxcAMNfktxi5xnGkNMqSnV0OxUUuBUgjpozZS1Gwy8ZW03pACoAd3e3CLTvgHwHEEURtrsDXr+5gGYKs9nsmaaygkqLJbSkmT40axSdodvtnqriZXKDwWDwRYsx5+wZN052Wza0qMRDo9FAlhluZHycQiUcA9qN0BZgoUL2xDc8C/Gq0yl503FaVW+SQyo9EAqnrAL0PIWQr/chsUxD48CO+yRxQWTEQa2Oer0OxfSUkJXMu8yCcY6CxzNtNhvcqKKBxhoHrjTP5X9BTrU069NlF5vUoAaD1Wr1aFzFzaxxRt+vuUQywurSyVnP5z8/Z1mmPH7J2PkGKGcAPDzEl/eLxVtb9sdVQJ51c+Lf8vf97V8AAAD//+DPt3MAAAAGSURBVAMAHLa/URJP0v4AAAAASUVORK5CYII="}, {"t": "سامانه فروش و توزیع مواد آموزشی", "d": "سفارش و خرید کتاب‌های درسی", "u": "https://irtextbook.ir/", "h": "irtextbook.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACVklEQVR4nJRTTWtTQRQ9d2ZeXjH1o4ifC6MuWmlQEFwI2oULf0JFXQn9D4L4QVDwY9WNCHZVodBFBOlOcKEbEdy4KAkSpcQgFawhoihN3ntzPe/l2UbJphMm8+bec2fuPeeORTYqBtjDWc5nXTPzxNXt2HceWHuVcCfAtAUuSB9bzyCCYWOyUoDGJTicRYJPQPQR9QetYVDB+LVjKNhzMOYz1PMG34WaSXrW6Rba1mDkKFRbUPsdhhiFoW0/ovaC4+cYNw8hxgwc+5wBL2H0C6BFWrYB5iaMnaAdcCGQdJfxe++8g4RdIE6Y8iwSecbgAHHURlA4TvAMD27Bx3O8dYmljEIlgnZnIRqiuZo4BD1eYgP+1VC783oji8NXPqB4IIDFCpbvvfmn8BM32kyzBDTUMZhEMi/BSF+NVfIwF6M5Tw7wZKMoVAYIT0gyfxgXt1m30FDxlCoFai5bKmtur+jmAdfp61PmWL7CpRvJAdW/QK5VBlYxRLyc8IYaOJYg8Kwiyb1+AKn5/G+oZ0xegnoeYC0TuE1yZugN6PKULCD7qSqH6D9JXI/fJvOJO03VakBHLAqnOhgJXUaiImZP9LhGTPMXeZnmepA3sslEM79QRnEN+OgRvj5+5xBZw+ZbJBcLCMJL7MIjWYpef7Kap+zQUWZQhia8X9hBeIHej7ewJnsfDjvDXbCyhKBYIpDkuiwelqp2v90laArh2BTifmezAy8yY67ri/Rd7mtbvsW3oGcY2emj0r6QtLlW4P0OZrE7Sz+l11K59C1E5Of9/ebw17iF8QcAAP//MX0xIAAAAAZJREFUAwCVbORC3/Fe6AAAAABJRU5ErkJggg=="}, {"t": "سامانه تاییدیه تحصیلی و سوابق فارغ‌التحصیلی", "d": "دریافت و استعلام تاییدیه‌ی تحصیلی و مدرک فارغ‌التحصیلی", "u": "https://emt.medu.ir/Madrak/SelectNezamAmoozeshi.aspx", "h": "emt.medu.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADAElEQVR4nGyTX0hTcRTHf/ffrlf3xzQ3kVjM0T/XQ7BJbzHIByVDcCwokpUIKYQZRA+BMNEgQZ314EMEYSaiRgaJQhAT9poPVlLaH2moY39s163r7vXeu1/nbii5/MH9c879nc855/s7l0aHrGAwSIdCoVOSJJ1lGMadTqedGONjZrOZtNlscbvdPltcXPykpqYmQhTEks/Hx+2yINQnEglrLJFIiaKIAMBtxeO1giDUuVwu1NzcjCorK5cAcrkQgHAwqH8WiZRsrK5u+/1+cc/v9XqptbW1RlmWX7S1tbEej4dVFGXyIMDnc6DdXQpNTHzUzKOtrQaeJM/RkvRLHBsLQxuEw+F46Xa7r3V0dEg6nY4kDwBKSh4jo3ESOZ2MZiYwPqFw3JzIMNc1expapCiKiMViKBwOk9Fo9A+NMSIIAuEcQFFYhDGHDAa8D1UUPfi0RMRIfb0Nyq5jWVaJRCIM6DNE7wdrOwgCw2aMFxbyPlXF4NNutCaPksk8BPEqLBYLSiaTIahmgPz086plaspL5QQEhsZBbndOG6aoSAfBFIC+3W5puXuktPSK1WpFNE2vQhU3YYkkq6cfJatFNn8EWIMoznSa0FSXo9EdLpO532UyOXiMhwCATCbTXHl5+cXOzs4fWjKAEe9vud5mtOw0RZFZjI2Li4syXGh4ZIRIra+fj/O8BxSPGo3GoUAgMABtZVG+Wlx4jDMomxVfNTX1fF1ZuSMKgu+3IHDRdPrdmaqqrr6+vi97cuU7zr+g/v5+A6h7fFuSLlXQdK1IkhfEnR1+k+dDM5nMDT6bvYdGRwMwTTo0Pb37b066u7u7BxStLWIYMy/Lpz+nUupJivIFDIZZYmurGpWVtcJwlcBUkn7QBwAHitbO93UqlXqARLHx6cbGhzme3xweHHxD+P0Kw3EmIl+qCoAsOmTRvb29S/tz0N7OkBjrbQ0N7Pf5eUmGGUAkCZOC6dyG5eX//p3chGnlaU+sqjFVVcMQrOa+UpRCyPImALZztsOBCwF/AQAA//8q+JFpAAAABklEQVQDAITVYAVKjCLxAAAAAElFTkSuQmCC"}], "short": "مدرسه", "hue": 350, "icon": "book", "featured": false, "blurb": ""}, {"name": "بانکی و ثبت چک", "items": [{"t": "بانک مرکزی جمهوری اسلامی ایران", "d": "اطلاعیه‌ها و مقررات رسمی بانک مرکزی", "u": "https://cbi.ir/", "h": "cbi.ir", "i": ""}, {"t": "سامانه صیاد بانک ملی", "d": "ثبت، انتقال و استعلام چک صیادی بانک ملی", "u": "https://sayad.bmi.ir/", "h": "sayad.bmi.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADK0lEQVR4nGyTbUiTURTH731e5tbc00qb5kzLaaWSOTXNOTUUIiszEsFK7IMEmvnFLxKVLIv6kiGBBhJamApCWJGVIqH5Vk4lLCs1p/Nl+TKd25zbnHtuz+McrezChXu553fOPef8Dwa2LoiYvXn2ipYf3u98QAjBf42J/zhgrfiNzaXZoWJhLgfiosGFlcqivPIqCKEaOJwjpzH2F4kU7F3Q21HRfDY2oCLIYgoTLy15p4b5FTfXFvYUXj4lY80Uij8cdP0es1BX/+N6mb8wc1ypWbPvPoyTJBeaR/vXD0ZSnEkaV2flthzpeFuldWTqkgIDg/gwj+SpsSlq1N3DtD3qAm+XpwfGRjDuk5IjE+22FasKyCRTNyXHYPGTNqBn47qmwLl/LbRG1fPcYrNLtSIGRhYzjVZXaQGPhD57k20vKmsGL53GCg4dFMtZOAMAHHfSSZGBeykhknr5nwSJJ9JjaNU4bW56A9e6eyAUCmnebk83rsD3R+vr6v5FIDF09qqVQ0wSGNosSEGW55XgfVi4hySOSywsAmN5OQJWG0B2O1ytrQNIqQSEKGSX2NebSk/iFDMIzpSMgRWOlugM2IcB5fTYtp3eEOiXEb2+DoDNylYZ0XoDhPMLiE8J+Pq5ZXJi0vSKQeyIecWcHWWSDYqQBx8waYb5QBIA3DMzoLmtHaw8q4NuCfEIyeXAoJlc43vt2EH57AnckADDEregQxjQaPiImwlN39DnrpQzF2WkLA5s5/IRbTQAjiwWQZKEM+OaPpJHBhFWnZaNyTYPUzgOIKdU1dmndm+lwHvJyPfhMaYwkIgIxziJCRAjSUKrXTbPjj4ScUme/72SlhJH6zeViNDGL2CIt8UzJc793PWrOWUq9cyM1WQGRp0ezM4tWMseVN3YL9ZJvbZZlrU28MtF9sBVlfBOfsjtowkBqd0dc3V+MflSSkD4db9rrI8K1iTpLDtteUVNWYyddcssOGv5RfmtwZdaI0OD8PPTYzU+qp/1dKBoPDsxWpxmMS61sXBDBsC3zILLnfXl9/Du8WqDlfN11QY1Qjdz2tTA4NPel/P1nxhlA5dp/A0AAP//naTVTwAAAAZJREFUAwBDtErRBtaPvAAAAABJRU5ErkJggg=="}, {"t": "سامانه صیاد و اینترنت بانک ملت", "d": "چک صیادی و اینترنت‌بانک ملت", "u": "https://ebank.bankmellat.ir/", "h": "ebank.bankmellat.ir", "i": ""}, {"t": "سامانه صیاد و خدمات چک بانک تجارت", "d": "چک صیادی و خدمات چک بانک تجارت", "u": "https://www.tejaratbank.ir/", "h": "tejaratbank.ir", "i": ""}, {"t": "سامانه صیاد و اینترنت بانک سپه", "d": "چک صیادی و اینترنت‌بانک سپه", "u": "https://ib.banksepah.ir/", "h": "ib.banksepah.ir", "i": ""}, {"t": "ساد ۲۴", "d": "استعلام و مدیریت چک صیادی", "u": "https://sad24.ir/", "h": "sad24.ir", "i": ""}, {"t": "شاپرک", "d": "پیگیری تراکنش و خدمات شبکه‌ی پرداخت کارتی", "u": "https://shaparak.ir/", "h": "shaparak.ir", "i": ""}, {"t": "پرتال بانک ملی ایران", "d": "بانکداری اینترنتی بانک ملی", "u": "https://www.bmi.ir/", "h": "bmi.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAB2klEQVR4nHRSz2sTQRR+b2a3O2l3u02TGtIUaqUV7UEo2ooVwYNeRPSmV4+C/4nixT9AehUPijcvuQhWUCFgFKRaicakaX40za/dTXZmurulzTZJ321m3ve973vfKFJKCJUEiYAul5QgYnABGG5Q4ER5cGy0yp1yRjXnjMklTVUGMBia4D9US1koprElMAJdNmsu3WdjWpiSHDN73TulQr3yhWvL6pXHPHZXKp3tX2ne4yMAgVzIfX3+73935uIt3XLiZxdtdmPr44vaTiZgFH3AIX27WWk09xcW18XnbH3jdfvVu1kjOTV3s/j302jTwrW6XVvFcSv9Xjq2vZlTzl0gmtaz9iDkmvTtE4Vp0qWgP3rY286z9VV6+Ty32jQyDiEECQx4J6mbyYnopVJuExLTZ14+nXhwr1YuNKpbidS1QPaAJO8CMZWa/5l58yO7YphRzvH397eJGIsnV45Ih3IQEr99eOa5bLK1MSfP5J+1OxvR6bgf5xHgRNIEYfnqk4bD4mayUhAL87f9bm8WpX2rA3/JLx6snBJPp5svEkMnU5NDaw089Iq7vFIF2/EONGpKxxG1euT6KozMwY9ib1+2Oqiq1NDB5cpMTDAmhUBCTpfEOYQUD9cBAAAA//9xZAMQAAAABklEQVQDABn11GSH92caAAAAAElFTkSuQmCC"}, {"t": "پرتال بانک ملت", "d": "اطلاعات و خدمات بانک ملت", "u": "https://www.bankmellat.ir/", "h": "bankmellat.ir", "i": ""}, {"t": "بانک کشاورزی", "d": "اطلاعات و خدمات بانک کشاورزی", "u": "https://www.bki.ir/", "h": "bki.ir", "i": ""}, {"t": "بانک رفاه کارگران", "d": "اطلاعات و خدمات بانک رفاه", "u": "https://www.refah-bank.ir/", "h": "refah-bank.ir", "i": ""}, {"t": "بانک پاسارگاد", "d": "اطلاعات و خدمات بانک پاسارگاد", "u": "https://www.bpi.ir/", "h": "bpi.ir", "i": ""}, {"t": "بانک سامان", "d": "اطلاعات و خدمات بانک سامان", "u": "https://www.sb24.ir/", "h": "sb24.ir", "i": ""}], "short": "بانک و چک", "hue": 10, "icon": "bank", "featured": false, "blurb": ""}, {"name": "خدمات خودرو و موتورسیکلت", "items": [{"t": "سامانه سخا پلیس", "d": "احراز سکونت، استعلام خلافی و نوبت تعویض پلاک", "u": "https://sakha.epolice.ir/", "h": "sakha.epolice.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC3klEQVR4nIRTWWsTURg9352ZTCZNbGKbNtEYU8WmcaEuxaWIiiu4Ii745JM+CIIPig/iT/BJ38QFUfFB8UVBEZEqaN0XXIqpJa22tanadImZzKQzn+kytbSCH1y4cL9z7vnOPVdgchEX1/DOE5+GWCw2/mxSM/5ZTNEt0w/PqHAdA4T2tUM//e1e/BTQkP8/gX+Nv3ZT8nI0Gt5aX10PtmV8+fESb963PA3Ywd0Prr/rGMXxULs0gUzM3mheXb6oasf+HUfN7lYDPek89u7ab+b0b7GGptSKbIvvGjAw6IAcAjHEWLNz9QHJW3r84PbDxswgKS7rqQj6MxQOVUih0FqzMZmKlUQ1M/O5/aGDcQiG5Ejl86ef3b1hc+WW2gwFcFH0dzZALiQxJ9yEslKVvL4l+JBsjqc7+89B14f9kJ15qtYmIl6tpHpuxEsB5Zp04uQL3H8swaUAVZFPuHRGF4nIEZ7q94didZFE672eZ0NY4cyS7v1RzpJPSYSb8eTRO25Pu3hlnaBlCwUJ2c237rZxovItyy6/6B7oDTq+jSmQNVWRir0kezifZ0jEFKoUDGboJlN/liGEwoIsaB63nBslEM5zDLJqAQanf5VQ3eIK6uouoDkF6h0Q9PylgXX1U9D+s4KIdNgsLMc7AScLFtleF3NHXwwZXoUbF0KorTEQ8OVx+0o51GB9MQ9x9riYinpth0B2PCjkcjBtor50EucferB00S4cOJSGZQk0tQZw8xJQXf2RCsW7c3mDxnswUooCv7eEvw/oaOlsY7msBk2ZBTB0E16vxKmuRmiVcdbcKiRZZgcmOx4UcgUkZkURLCvF5j3rkUy1o6UjCVWRYYop2LZvU5HMgNLrYcsaC+LfHJRqoGhZQJoRnEp9/VlaXzsPenbEa5/fR21fuzA7XPRCFLMhVDImKhhU3IU7ja+/+1RV2DzyoX9n8+TWVNiWzbIkwK9s1m1LslU4ePwBAAD///G4ErwAAAAGSURBVAMAolYhGz/LNO0AAAAASUVORK5CYII="}, {"t": "سامانه نوبت‌دهی تعویض پلاک خودرو و موتورسیکلت", "d": "گرفتن نوبت تعویض پلاک خودرو و موتورسیکلت", "u": "https://nobatdehi.epolice.ir/", "h": "nobatdehi.epolice.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC/0lEQVR4nHRTS2sUWRT+zq1bXenqSjrp9CSTGTJRUAkzNIzIwMxiBpzZyCTMYjazmoULxd/gypW/wIUiqDsRNyLRpS4CPkAMaoygEB/go+2kNd3VXelbt+7xVLWIC63iUpe6557H99AASBbj2NUxNVs/xMwLyNw0yS95iZGfMoOURKqmRF/By/ZpHPu7k9/NLwNnV3bDmAsSuRepyS/IEQ9z5yGKig9Dkvh+vlmBdf/hyK9PCKfuVOG2l8MwbOxQxkS+5zERsWMkmUN7YPFeVmLSPBEr5WUujEowgweg4HeNQXy4NjHWmPez1Fjy4zRDJrU1M5WU4pnQx67RgKy0tN5JqNlJlEI3deWogSQ+rDxPLe6fity2darkexgtaY58RWHgc0lLJzJ9z2Tc7g1ovlrG/z99B2esgrUOWi/qzHL9wNw4XcsMzj94yYgCykGjogOCljVTLtFkWbNxDvtna9xNM7r07B2R79fVxGiAzcTQv3um+ODeWcIglWWJZX6Jx8SIX2Cx2oop1B48YjLGFgizBOh+bCAd4+lWQn/NTuCfnXW++LhJj9oxdoyHWN3soW0tIkn08zcRtfopX322SZPVCnos7ODE8sPpEe/HM3/ucW2pvr7Vp31TY2jUK7jbinHj1XusbyVoSqFdkxW0egOeHw85EfDOrL5e0xDgmtspFpbu89F9P9CBuUn2FOjWmw7e9A1+mxnHL99WpXVgyzhOsgw1Afjm2xg2zZWRa8b3ZKfo+M11Xrx8D7ebXTYCcqNWwbTQOCIZnYxckWIzlYAFHLr+4h0LF9CA25DbQhazrgSqYyzOrb2m1Y2YA6Fgp1A3FwVc9TVZYee50LnS6jpLJVGlt6GFzyWUwz9gtoUc6Uhk8qI/4MqIpq60vLbZx9rb7tAaufDlXOZxhVD6vaWhlHmwjFLQQK9jRPSe6KDwCImBiIZey/HOxcEOGX8m5aGZTt7aLYq5IDFiJtG8RH16Chfxx/2XzPSZnfF97ZDsFiTBdJEkL+8KyXzVzh8AAAD//1Scp2YAAAAGSURBVAMAoa+EdJkW5zkAAAAASUVORK5CYII="}, {"t": "سامانه فروش اینترنتی ایران‌خودرو", "d": "ثبت‌نام و خرید اینترنتی محصولات ایران‌خودرو", "u": "https://ikcosales.ir/", "h": "ikcosales.ir", "i": ""}, {"t": "سامانه فروش اینترنتی سایپا", "d": "ثبت‌نام و خرید اینترنتی محصولات سایپا", "u": "https://saipa.iranecar.com/", "h": "saipa.iranecar.com", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADEklEQVR4nHxTa0hTcRS/93/vrlNvPtJ85CwVfKQz8q2ZY5ojlPxiGD0ggkJDRIymFRjYh6QsMLJR3xJFjBFBm1awIjEVp2k63Fo+NqdmD3XZ5nW71+3e7h2t1nqcD/cczj2/3//3P+d/EMjLmpqagFgsRvr6+hiPNCyXy5GUlBTYKw/B0H9MKpWG4TiOsqTL/6qBvWKmq0ueQdiIHBQwz/Py8jusBMH/urZSQdNIiVY7NSqV1o26azkQcKNZia44Kyv9rFAolK2vWwqDggIF/v5+oQAAcUJigiwpJanas/Y3AgiqgBiGgfEAnIQhxmG3kw6apknKTlL0Fk2ZzWaHP9+X9FL9iyA5WYvAMMxskSTJagMoirIOBjY7BRAMgyiKhLU6PUfA6HQ6xE30k4CVTckVitiAgMBM9nYAw3i+Dtrh3CQ2nU6nw4ctQRY/LKZnZ2cnsE2l3D1Auc/l5uaQcsmhcwJB1CWLxYrr3+nHAED1wcHBfCftBP39g7PC1OThzPSsAz6YjyYjI+emzWaVtbe3f+JkYN0PHw1ksaad0i5rpqZunT51fD4iIqJarR4pZmVDGA/rNxoNd6Ojd4ehPOQCQNBY45xhQq0eyOXuQpeWlPBNC/PvnRDUWlN1RmyxEte7urrjGhsbH2gmJ0cjd0aWJyQmVmwSxNqCaaEF34YvwQhQydrujHIEkELxZLxQfLAof3+ubPnj5zTZvfu9LPBi77MeentIuKWjs7PNj++LCVP3HouKFpwkrMSbmurKFu5wVydrq2rjj5w4+hblYYYXqpc3GhrqED6ff35iYnKfwWiCGBrSajQTrTabbaO09HC9P+67Z0Q9llZTUzntImDnDzSaudDx8ddxxcWSayjKK+rpfQopFcrbKAookUjcsCsmBjKvrg6yo66Pj98xW1BQssbGtGsK3PxZ9+XV0FCAybSUPj0zo1QPj1xVKB6Pcf9DIsK6w8PDrwgE0SKLZWNFJCpdcb+DP3ZBqVSGlpWVrXIJbjN/eJrzKpUqUCKRfPPcBfgvy8W4wW6gZ+xZw9l3AAAA//9HCg+9AAAABklEQVQDAGenVdiDYBzGAAAAAElFTkSuQmCC"}, {"t": "میز خدمت و پیگیری قرعه‌کشی ایران خودرو", "d": "پیگیری قرعه‌کشی و فروش ایران‌خودرو", "u": "https://esale.ikco.ir/", "h": "esale.ikco.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADZUlEQVR4nExSUWwUVRS99703s12G3W3ZhW23wQYoWJa0YCofotEiCmnFYIw1xhLtj4mQqEkNfi8RY6IfJoQPNTHGH2MW/MEPYwxaU1RiaBBq1ohFGm0l7Ra7y3Zmd2bevOt7Awnc5GUm791z7rn3XAHDJxP9W3tf5pbVixZ0CjuZ45bIc47rkUPOti3FEvYyY6KqQC1SJKsAsMRse+bbV774XKTaMmuJ2Hso1mQYSGAEgFEEiAD6AzVfQptUTiLZ1mNZAsCyQSQckL57DUaLZZERIYVB2ABsOIikGq7mQH0Yw2w6CY/cvw5yKRt+XfDoZitQFmNK6oqa3h18YjOJurTQUYoFQcQRI/b07o0wNJDH/9wQHtzSAcXuFC7VfZo4cxXdms/bHVsX0PoUY9Pn/kKRBiNVAZDEiWf66MhT2zT73ZD6bUMmgcf299Cb5asUBJLMWLRaLEIFmGnB8wIotCfh8OOb9ASAwkhRKKMYbIoF+n/nxjSODm7AlVuteEa6KFU6DhLLpNPgNUPcsz0Hv/xRxdqqD5ZuRnAG5vA7enQ+7NuehZTFsNUMtWAFxUIbsj+rjTBp8XB2vg6VuRpknIRJNm3SzNwKzC26YAtuXKHevINHhu6jWsM3jLIyeUaxvYmU12ypRV+TDm7LkrFPqbgoLtVa8NrHF2Hyt0VYbcr48vDDXXx/f55uNsIbMFmS7PTp5yPPDWZ293VCJMlAMSYhoKGBTlJazQvv/0gHT0zBpesrFCoWNgOCptu8YgjjvQn+WT6bXWvj7EINvZYk07vGEdezfvelXdiRFLCwvApHP5yGkXd+YOevLEA2YX8VE0B5lMHssa99z720c2uX+KB8OTJWCIZMO0EDmzrgrWeL4OuNbLi+/LcOXIA8d+Hth37ShiHDStnkB99dmHt9cz4ZDj3QzU58Nh1Va02yBEfNQeNP9sJjO9bLhiutBKhbnhtNGLuNAg6Tx7VYwrGRvr8L/c/ND+/pObSlex0vfz8bdeccSDs2MCTWU8jy8vl5jzM19vupA1MAJW3wXopdNpbpYG+8uOvTj768fGCNTZXxkR3i+o0G03PQq6t3AtnFnIP7KqeGz0LJgEuxV3jv2hoSTaYfxtu/mTr+alchfZShal2br5889OjYJwA/N2Nw6TbYxP8AAAD//zik2GUAAAAGSURBVAMAyw+ddfjyNLAAAAAASUVORK5CYII="}, {"t": "سامانه معاینه فنی سیمفا", "d": "استعلام و گرفتن نوبت معاینه‌ی فنی", "u": "https://symfa.ir/", "h": "symfa.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACK0lEQVR4nKRSS2gTYRCeb59pmmxikCJxEygW8YG92YMiVFAUexC9iVBQpHgqiD2Y0kMQrZ5UevCkvXlQEBU0hyKoRUX0IHoSH/WgLUR8kU1S3ezO7yS0NK19HPrBsv98/84338ysRquE0Ry0nHPX68AuUpxUgE1QOilSIM0HwioxffCGpp4uKpAa6XCCsj9QillnqP/j3wWFQKfcyK2Ct25TLPEQKji6rVIpNi7iw5lHJCXl+IDIvO8NTryfzUrn01FPtzNe2PL57eVJF6EaE0cbCNqIIt5HpH1DKt/h1Gx/VDQOiNlpgKy6sDhX8o4I9/zKzem+rk+1MSmUndEO5LtCSaNjhm/5LhQfbLQD1aLmW3/X+yzo7ZrwC3LONrcu8vsT0rkGcM/cLPBEnuNi86cEFYuMQyfHq5ck3kL/w2LGHkMu185xSnm+c8Mxvajw1uMLv7qFOkxLAbRGKkOTxFmq27G9i6Xcl9Ov2hLtwr+h5dFI5mZGhtefPNveGanQVQliKwgoA6x81upuUBf0tQA9nd9rVQZd0wijBNTAXGUDoU7EHNJdaSs+IxAgms+kTRNbFcFSCF54g5M/liv5OplMxoKIWZX96uXib4N132boWRE4wtBy8fPudarxCdnLTvlt7y0U2DEQ26iDt0NpU94Q3TH+hHrRNNAmguO64r3SyUuy0CdjbW0ddjfXhzJfQpYH2b5SjflgMZtO3k2xTbvLua+3aQWAVol/AAAA///dWqA6AAAABklEQVQDAPkr1SC+NYrQAAAAAElFTkSuQmCC"}, {"t": "استعلام پلاک، عوارض آزادراهی و طرح ترافیک", "d": "استعلام پلاک، عوارض آزادراهی و طرح ترافیک", "u": "https://cartapele.com/", "h": "cartapele.com", "i": ""}, {"t": "سامانه تهران من", "d": "استعلام و پرداخت طرح ترافیک و عوارض تهران", "u": "https://my.tehran.ir/", "h": "my.tehran.ir", "i": ""}, {"t": "درگاه خدمات الکترونیک پلیس راهور ۱۲۰", "d": "استعلام خلافی و خدمات الکترونیک راهور", "u": "https://service.rahvar120.ir/", "h": "service.rahvar120.ir", "i": ""}, {"t": "سامانه کارت هوشمند سوخت", "d": "درخواست و مدیریت کارت هوشمند سوخت", "u": "https://fcs.niopdc.ir/", "h": "fcs.niopdc.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABW0lEQVR4nJyTPUjDUBSFz0tsTYOopUGpOihCEcGlCv5M4uQsOoiDP+Do4CKIIIgu4ibq4ujkouDsIOjiUBcdFUU30cVNmvZ5Gmx4aV/S0gP3cXNz75dzQ2IgRBLDmxLZMdSQEXHvFxB3EiMbaBDQzjDpZZ9udsKahK4o0WsBqSem/Up1RuDhsk4Hzklw2HvWscRgS00Ad97iuYxqpYHESiSAb32J5x5CJafpIq4FSIz2lGwiUoZNF1xlKFkFANxVHrbafphM47zVUR1wDck1YosaAAIfzbfZhCMCFroyuLbbyuUMXXJGTGoAolkFrHf24Tluocj8INWNoIRuheKL2vIas/z8xzQrAPJNAzCu1Jbtrw84BRcdhTx2P99lECAu/MxnerDsLUsTiNYNkJsS3ojigAWuK2aZPkYM3zPmysP/c0FJjCf4I67x1jwvBxguo/RfnDFOBXJ5tf8PAAD//9frwA4AAAAGSURBVAMAoadNXc+PQuoAAAAASUVORK5CYII="}], "short": "خودرو", "hue": 30, "icon": "car", "featured": false, "blurb": ""}, {"name": "خدمات مالیاتی", "items": [{"t": "درگاه ملی خدمات الکترونیک سازمان امور مالیاتی", "d": "اظهارنامه، پرداخت و خدمات الکترونیک مالیاتی", "u": "https://my.tax.gov.ir/", "h": "my.tax.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBElEQVR4nFSTyU9TURjFT19fB0pLJwplKoNMBRklDiRiookGcOPGIW7cujW4d23Uf8AVunAIGzRBJRI0JAjIVGaktaFQWkoLnQsdqPd+SKJ3896795vu75wn4u9y7K5kP869xoZ3ERZjNe01lJxD7CiCrYCDvu27S6g01aO37T6ays5L+J54WkCQCFhzz+Gn8zv2wh4kkjGU59ey9x1MOkYglyqQOk6hxXIJUon0NA0i65iVSeXwBrcgCFJeGZlMGpnjNGyuH/hke4vGkg6olXlsL4OD2B4O4n426VI2lUlCHJzpx1EqgVB8Hw7fCo2fzqQgkUhoihpzEwxqE9Y9C2yiGoxvDMMb2kY8GaVmonvfiTXPPIp15SjVV+JG822U6CsQOQxRUV/YDW2OAd0t9xiPMD7b3rGzIFbdszDmFkCwsKoG9qJSqPHbt0os+D0nNr7i1dgLjK4M0n5nzXWYdRYkUnG6e4Wpjn2XQRSlMkoSGBhrSTuih2E8H3qML4vvUVfUAqVMhW+rHxBk977WeAvZ7DFS6SSS6aMTiGZtGRpLOzA4249WSyfCiQNMOUZRa26GtbgdMlFOgWs78+xqlVDIcqBRatF95i5xEvS5+agqsKKjsosC5aKCnnk5+pMOgowC+UqkYlCISsxvjlMjPr204qr6ycDUS6SZxqF4AFesNwnesnsacpkSgeguVranUW0+SyaKMpC5TNJ1j43YCSZNEQExqguZXAXI15jR1/uMXMjcyZJn6PxRz1MY2dmscww6lZEU4NOKzr11LLMOnANf3FASBvVyfQ8KtaXQ5OhQX9RK4LjhuGr+iJd5YYuZSwuxIK+YOvBDT9CFIdsbbPp/kQKBqI/8MWkfoeIapY58wafj3DgPyYJrMsth+CMeDC8OwOXfgFZlICMtuCbIWC6/naTmcXzsOxcfotRQRVKKzZYLhJh7W6/Kx3pyngI55QddfdSVS8gT7b5lNDBpuaFqi5r//xv5CjIVuHG4//nPVGWykjrW4jZWQEkeqCps+DcFfwAAAP//uFco8QAAAAZJREFUAwAHr0Aq0lPPWQAAAABJRU5ErkJggg=="}, {"t": "سازمان امور مالیاتی کشور", "d": "اطلاعیه‌ها و راهنمای قوانین مالیاتی", "u": "https://tax.gov.ir/", "h": "tax.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBElEQVR4nFSTyU9TURjFT19fB0pLJwplKoNMBRklDiRiookGcOPGIW7cujW4d23Uf8AVunAIGzRBJRI0JAjIVGaktaFQWkoLnQsdqPd+SKJ3896795vu75wn4u9y7K5kP869xoZ3ERZjNe01lJxD7CiCrYCDvu27S6g01aO37T6ays5L+J54WkCQCFhzz+Gn8zv2wh4kkjGU59ey9x1MOkYglyqQOk6hxXIJUon0NA0i65iVSeXwBrcgCFJeGZlMGpnjNGyuH/hke4vGkg6olXlsL4OD2B4O4n426VI2lUlCHJzpx1EqgVB8Hw7fCo2fzqQgkUhoihpzEwxqE9Y9C2yiGoxvDMMb2kY8GaVmonvfiTXPPIp15SjVV+JG822U6CsQOQxRUV/YDW2OAd0t9xiPMD7b3rGzIFbdszDmFkCwsKoG9qJSqPHbt0os+D0nNr7i1dgLjK4M0n5nzXWYdRYkUnG6e4Wpjn2XQRSlMkoSGBhrSTuih2E8H3qML4vvUVfUAqVMhW+rHxBk977WeAvZ7DFS6SSS6aMTiGZtGRpLOzA4249WSyfCiQNMOUZRa26GtbgdMlFOgWs78+xqlVDIcqBRatF95i5xEvS5+agqsKKjsosC5aKCnnk5+pMOgowC+UqkYlCISsxvjlMjPr204qr6ycDUS6SZxqF4AFesNwnesnsacpkSgeguVranUW0+SyaKMpC5TNJ1j43YCSZNEQExqguZXAXI15jR1/uMXMjcyZJn6PxRz1MY2dmscww6lZEU4NOKzr11LLMOnANf3FASBvVyfQ8KtaXQ5OhQX9RK4LjhuGr+iJd5YYuZSwuxIK+YOvBDT9CFIdsbbPp/kQKBqI/8MWkfoeIapY58wafj3DgPyYJrMsth+CMeDC8OwOXfgFZlICMtuCbIWC6/naTmcXzsOxcfotRQRVKKzZYLhJh7W6/Kx3pyngI55QddfdSVS8gT7b5lNDBpuaFqi5r//xv5CjIVuHG4//nPVGWykjrW4jZWQEkeqCps+DcFfwAAAP//uFco8QAAAAZJREFUAwAHr0Aq0lPPWQAAAABJRU5ErkJggg=="}, {"t": "سامانه مودیان و کارپوشه مالیاتی", "d": "کارپوشه و صورتحساب الکترونیک مودیان", "u": "https://tp.tax.gov.ir/", "h": "tp.tax.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBElEQVR4nFSTyU9TURjFT19fB0pLJwplKoNMBRklDiRiookGcOPGIW7cujW4d23Uf8AVunAIGzRBJRI0JAjIVGaktaFQWkoLnQsdqPd+SKJ3896795vu75wn4u9y7K5kP869xoZ3ERZjNe01lJxD7CiCrYCDvu27S6g01aO37T6ays5L+J54WkCQCFhzz+Gn8zv2wh4kkjGU59ey9x1MOkYglyqQOk6hxXIJUon0NA0i65iVSeXwBrcgCFJeGZlMGpnjNGyuH/hke4vGkg6olXlsL4OD2B4O4n426VI2lUlCHJzpx1EqgVB8Hw7fCo2fzqQgkUhoihpzEwxqE9Y9C2yiGoxvDMMb2kY8GaVmonvfiTXPPIp15SjVV+JG822U6CsQOQxRUV/YDW2OAd0t9xiPMD7b3rGzIFbdszDmFkCwsKoG9qJSqPHbt0os+D0nNr7i1dgLjK4M0n5nzXWYdRYkUnG6e4Wpjn2XQRSlMkoSGBhrSTuih2E8H3qML4vvUVfUAqVMhW+rHxBk977WeAvZ7DFS6SSS6aMTiGZtGRpLOzA4249WSyfCiQNMOUZRa26GtbgdMlFOgWs78+xqlVDIcqBRatF95i5xEvS5+agqsKKjsosC5aKCnnk5+pMOgowC+UqkYlCISsxvjlMjPr204qr6ycDUS6SZxqF4AFesNwnesnsacpkSgeguVranUW0+SyaKMpC5TNJ1j43YCSZNEQExqguZXAXI15jR1/uMXMjcyZJn6PxRz1MY2dmscww6lZEU4NOKzr11LLMOnANf3FASBvVyfQ8KtaXQ5OhQX9RK4LjhuGr+iJd5YYuZSwuxIK+YOvBDT9CFIdsbbPp/kQKBqI/8MWkfoeIapY58wafj3DgPyYJrMsth+CMeDC8OwOXfgFZlICMtuCbIWC6/naTmcXzsOxcfotRQRVKKzZYLhJh7W6/Kx3pyngI55QddfdSVS8gT7b5lNDBpuaFqi5r//xv5CjIVuHG4//nPVGWykjrW4jZWQEkeqCps+DcFfwAAAP//uFco8QAAAAZJREFUAwAHr0Aq0lPPWQAAAABJRU5ErkJggg=="}, {"t": "سامانه مالیات بر ارزش افزوده", "d": "ثبت‌نام و اظهارنامه‌ی مالیات بر ارزش افزوده", "u": "https://evat.ir/", "h": "evat.ir", "i": ""}, {"t": "سامانه تسلیم لیست حقوق و دستمزد", "d": "ارسال لیست حقوق و دستمزد کارکنان", "u": "https://salary.tax.gov.ir/", "h": "salary.tax.gov.ir", "i": ""}, {"t": "استعلام بدهی مالیاتی و اظهارنامه تبصره ماده ۱۰۰", "d": "بررسی بدهی مالیاتی و ثبت اظهارنامه", "u": "https://eservices.tax.gov.ir/", "h": "eservices.tax.gov.ir", "i": ""}], "short": "مالیات", "hue": 50, "icon": "receipt", "featured": false, "blurb": ""}, {"name": "دهک، یارانه و کالابرگ", "items": [{"t": "سامانه حمایت", "d": "دیدن دهک خانوار و ثبت اعتراض", "u": "https://hemayat.mcls.gov.ir/", "h": "hemayat.mcls.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADPklEQVR4nExTbWtcVRCemXPuvZvsms1mt8mmYWsLwRcSGmxrQakUTPyiFjFBbUAKftAfIP4AS8HPov4CKS2IEmIVbSyJhYJIaWvRKFgTTYNNttnu++69e+89Zzq7fSEHhjlw5pmX55mjYddR6rt3iWGGyByJYzNmwAwiEHhaV8TdsUZdNYZ/MnDi3CMMPnDfjDqovyTlzIBEhnEAT6Q0vPjCHlj/twV//1OTGCsvfeBoADbRxZDj9wDmthTAinZUsEA0OG1NMzZsbGbIhdOnD0F60MHV36swOTHEhw/luNkITK3WtkpnniLuTFmYO4cKFuaU9r6O4yAa25tWQcA0/UqerWFYXi7iq6+NwsGDGUbp9fq1Ml65UrJ3/q9aIq1lzDeUo05+bKzz7PCwCy9P76Xt7Q64HuGPP2xiOp2AW7d24PsLW3jztza2Wh2ulCNstSNW5ErKyBApmjTs49GjORofT0kQ4M0bO8AcwfZ2GUo7nd697Tdg/4Ekvv/BARwd9SiMQyDC54iZC0ILhh2AZNLher0BjUYgihBorcSoGwjNhg+L325AtWr4zJkj4LqM1vKYAn7rk2wmCc2WAa0Q19crEIbCOFFPHynw2OdyA/DXn3V0HAC/bbBYamky8pDNOjAxmYalpbvgeX2PAV1DYa9rXcWjsA3HXsrC5ctFrFYjkRU1OaSa/91uwvHjeZ6f38ele20Q6C5gL11vjHabpNAgj4z0261iSzpWdSERb0cR8hef/wGFQgLfeXu/6J8AK9Vl68QsxGKplAcj+TQMDGgcHnYkJbBgN4Wq+WNaJSbLlcBeu1pD3w+l2QQ2GzH096EA+6HpW3hz9skuuey6Gn79pWjrdUVI8SVtrf2KMJ7XZDmb8/jw81l65ukBVgrh+o0K/rxSgo8+HOfCvgRcWiriynLRbmw2ZaVdjCN7vseOqxYWETMn4rgcFwopnJoaolo9wo0Nn2U/hLg9+Nmnq7y23rDSMhNlNHN5ITSzsw9ZWhxxEM6Scmei2Mi3Cbp5OZdJYj6fgLW1OvuhQU97DxUyF0MTnQKYvYu7v7OjLpwSsk8i2QmJKkiLEAtdmqg70iZbtQoGz4fw+tlHmPsAAAD//312NAQAAAAGSURBVAMA3HmQKis6fVwAAAAASUVORK5CYII="}, {"t": "سامانه سیمین", "d": "خدمات یارانه و کالابرگ خانوار", "u": "https://simin.hadafmandi.ir/", "h": "simin.hadafmandi.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaElEQVR4nKTSwStEURTH8TvPjAVjRkNYUUikhGJjKVthYeFfkIWFna3ytxD2lkh2CAlZUGRDYTLGzHi+p/d7Y4aQ5tan7ty595xzz32eq3BEf1ivRjd8ieAU+b8CVCGODFoxjgLWcIYknvEeHoiUHK7DNJ6wjxts6MAMOjCg6laUpFiBLS5qfoksPKQQ07pVUos+tGHJ1jz9OYZRbCnT3ZfqPFXUg01MYiT8wzZO4QAJZcy57yOj/lifLjARBqhR1hM0qBc2fDWr4D5fIiH2Il2WLKpNb8pg2hW0oF5kNU/q7mntszO+px9HaFEVtqlfG17FAgyj0QXP2YxD5MMmrrrg3a9wjDl13IK/KLut7eFeV113aoiNWzXPvrRdzOpQk9YGMYR5VXrtghcre6qYGvjggmddRqcaaE1bwI6yPypw2aec0+GU7rytO+c1t+vW6wrFUVpBOCxoXPNeBT5XJWkF/zXAv8YHAAAA//9Tlqy2AAAABklEQVQDAN3xXOBgXuPtAAAAAElFTkSuQmCC"}, {"t": "سامانه جامع روابط کار وزارت کار", "d": "ثبت شکایت کارگری و دریافت بیمه بیکاری", "u": "https://srk.mcls.gov.ir/", "h": "srk.mcls.gov.ir", "i": ""}, {"t": "سازمان ثبت احوال کشور", "d": "خدمات شناسنامه و ثبت احوال", "u": "https://ncr.ir/", "h": "ncr.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABo0lEQVR4nGzTzStEURgG8HfGMD5S43NJvktIhBIpTU2aBQspOztZsVJS/gA7W7JgoVhhdqwQJSksfKTYyLdiwWQw43k7zx3HbW79ujNnzj3nPc99xyf/Lw8k+LkFuuAD3mEhxRzxpni4AcJwBkUwCEdQCh2c43Ev4DzcCRPQDjnwAiVwAn0wApP2InYFfpiGQyiDB8iFLz6gR9mHHghyzOvlIvqlm2e9gHSrsig/30AbRGDIPoJznnLrIb817izwA5mwBxUci/vkL9E7lvsIjdZ4jPc6LpAB985mWkGcu21AALK4azM8M0i9NNx5GIB1Z4E06yifnFwNazBuZRBmiHNiXvMMj5RIvk/rKgY92hQMc+xSTPpvYoKOuivwWHedUM8MNI9rWOT5j5lT8nJXYLdpgPdX63fdsBCexGRXqaXmQS3LPhcTopYa5G6aR42YPtB52WKarBVCumIICjg5X0z6V5ys7azNox15KqbVNY9Rzl3SkmdhG7ZYRZWY1FfFNNcuQxuDA/jm94g7A/3T9MIyNMEmzxzjvR924FbMa9d+WPkFAAD//6PvVeAAAAAGSURBVAMAkgRkJnW+wcMAAAAASUVORK5CYII="}], "short": "یارانه", "hue": 70, "icon": "wallet", "featured": false, "blurb": ""}, {"name": "خدمات قضایی", "items": [{"t": "سامانه ثنا و درگاه خدمات الکترونیک قضایی", "d": "ثبت‌نام در ثنا و خدمات الکترونیک قضایی", "u": "https://adliran.ir/", "h": "adliran.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGUlEQVR4nHyTy29MYRjGf2dmOkNdo2noRjRuC5lFy4aUUmkkLhESxK5/ABGRIIiZ7kj4B4RIXCKCJkRqISaInQhJIzY2NiJuFVNF1YzffD0pc9Fzcr7vfO/3vM/zvO/5Tor/XSfZzkxW8Z0flLlAnneNYMmadSRwNuu5ZtJTfrPP+bHx3cbm8JChgPnnSky+7QpkZUocIMUOdZ8wjazr6aa8IsNV9jtWMA0JVsTMEfNULvFAil+CExZRpigptFSrVxPkTSPwDwpLsE1PpXAvMbpXugIvpawpIarrQYWiny0WdIUxhjWdMO21ApvcK1FTQp2l0IsbuumzAwtdpY2d4HIcn5Igqto8aC/m8jZERqQ6w/s6kYYO8jQ7dtHEJa23hFiKj5bT50kocC70oUo14qhazZzX4FK5s5qfaG8xdjQrFip6R7zwec6oUqcYTgXbaXpMbJPgs/wXnd/4pAUeColfOStqTNJ244vdWR1y4FYqABKqjnLYOdLuGnKcjss5EuZ+joc5JwadVg53kt4KQcQxlZu4K2hlDBpinM3GPgi7Hxfaq7NWyQfFZWPcM2NbkxrJaafdtrWxgW6/+zK3W1W/5/nv8v2TSQNs9GNmWMRa5rPOnQzL3VuQUmXE096p/c7Qshk+P7kZK9+ebHeZLza6w7eO0NJMwN2Z+PvguvZ6AnCcR447jX/j77mo4CrUA+K6Y1zBcc8fAAAA//8VqNHpAAAABklEQVQDALl5ldLp0/QGAAAAAElFTkSuQmCC"}, {"t": "سامانه ابلاغ الکترونیک قضایی", "d": "دریافت ابلاغیه‌های قضایی آنلاین", "u": "https://eblagh.adliran.ir/", "h": "eblagh.adliran.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGUlEQVR4nHyTy29MYRjGf2dmOkNdo2noRjRuC5lFy4aUUmkkLhESxK5/ABGRIIiZ7kj4B4RIXCKCJkRqISaInQhJIzY2NiJuFVNF1YzffD0pc9Fzcr7vfO/3vM/zvO/5Tor/XSfZzkxW8Z0flLlAnneNYMmadSRwNuu5ZtJTfrPP+bHx3cbm8JChgPnnSky+7QpkZUocIMUOdZ8wjazr6aa8IsNV9jtWMA0JVsTMEfNULvFAil+CExZRpigptFSrVxPkTSPwDwpLsE1PpXAvMbpXugIvpawpIarrQYWiny0WdIUxhjWdMO21ApvcK1FTQp2l0IsbuumzAwtdpY2d4HIcn5Igqto8aC/m8jZERqQ6w/s6kYYO8jQ7dtHEJa23hFiKj5bT50kocC70oUo14qhazZzX4FK5s5qfaG8xdjQrFip6R7zwec6oUqcYTgXbaXpMbJPgs/wXnd/4pAUeColfOStqTNJ244vdWR1y4FYqABKqjnLYOdLuGnKcjss5EuZ+joc5JwadVg53kt4KQcQxlZu4K2hlDBpinM3GPgi7Hxfaq7NWyQfFZWPcM2NbkxrJaafdtrWxgW6/+zK3W1W/5/nv8v2TSQNs9GNmWMRa5rPOnQzL3VuQUmXE096p/c7Qshk+P7kZK9+ebHeZLza6w7eO0NJMwN2Z+PvguvZ6AnCcR447jX/j77mo4CrUA+K6Y1zBcc8fAAAA//8VqNHpAAAABklEQVQDALl5ldLp0/QGAAAAAElFTkSuQmCC"}, {"t": "سامانه نوبت‌دهی شعب قضایی و اجرای احکام", "d": "گرفتن نوبت شعب قضایی", "u": "https://iehraz.adliran.ir/Login/Authenticate?ReturnUrl=http://adliran.ir/Turn/Index&SystemName=UnitTurnService", "h": "iehraz.adliran.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGUlEQVR4nHyTy29MYRjGf2dmOkNdo2noRjRuC5lFy4aUUmkkLhESxK5/ABGRIIiZ7kj4B4RIXCKCJkRqISaInQhJIzY2NiJuFVNF1YzffD0pc9Fzcr7vfO/3vM/zvO/5Tor/XSfZzkxW8Z0flLlAnneNYMmadSRwNuu5ZtJTfrPP+bHx3cbm8JChgPnnSky+7QpkZUocIMUOdZ8wjazr6aa8IsNV9jtWMA0JVsTMEfNULvFAil+CExZRpigptFSrVxPkTSPwDwpLsE1PpXAvMbpXugIvpawpIarrQYWiny0WdIUxhjWdMO21ApvcK1FTQp2l0IsbuumzAwtdpY2d4HIcn5Igqto8aC/m8jZERqQ6w/s6kYYO8jQ7dtHEJa23hFiKj5bT50kocC70oUo14qhazZzX4FK5s5qfaG8xdjQrFip6R7zwec6oUqcYTgXbaXpMbJPgs/wXnd/4pAUeColfOStqTNJ244vdWR1y4FYqABKqjnLYOdLuGnKcjss5EuZ+joc5JwadVg53kt4KQcQxlZu4K2hlDBpinM3GPgi7Hxfaq7NWyQfFZWPcM2NbkxrJaafdtrWxgW6/+zK3W1W/5/nv8v2TSQNs9GNmWMRa5rPOnQzL3VuQUmXE096p/c7Qshk+P7kZK9+ebHeZLza6w7eO0NJMwN2Z+PvguvZ6AnCcR447jX/j77mo4CrUA+K6Y1zBcc8fAAAA//8VqNHpAAAABklEQVQDALl5ldLp0/QGAAAAAElFTkSuQmCC"}, {"t": "سامانه ثبت قرارداد الکترونیک وکلا و استعلامات", "d": "ثبت قرارداد الکترونیک وکلا و استعلامات", "u": "https://adliran.ir/ErrorPage.aspx?aspxerrorpath=/Home/DefaultAction", "h": "adliran.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGUlEQVR4nHyTy29MYRjGf2dmOkNdo2noRjRuC5lFy4aUUmkkLhESxK5/ABGRIIiZ7kj4B4RIXCKCJkRqISaInQhJIzY2NiJuFVNF1YzffD0pc9Fzcr7vfO/3vM/zvO/5Tor/XSfZzkxW8Z0flLlAnneNYMmadSRwNuu5ZtJTfrPP+bHx3cbm8JChgPnnSky+7QpkZUocIMUOdZ8wjazr6aa8IsNV9jtWMA0JVsTMEfNULvFAil+CExZRpigptFSrVxPkTSPwDwpLsE1PpXAvMbpXugIvpawpIarrQYWiny0WdIUxhjWdMO21ApvcK1FTQp2l0IsbuumzAwtdpY2d4HIcn5Igqto8aC/m8jZERqQ6w/s6kYYO8jQ7dtHEJa23hFiKj5bT50kocC70oUo14qhazZzX4FK5s5qfaG8xdjQrFip6R7zwec6oUqcYTgXbaXpMbJPgs/wXnd/4pAUeColfOStqTNJ244vdWR1y4FYqABKqjnLYOdLuGnKcjss5EuZ+joc5JwadVg53kt4KQcQxlZu4K2hlDBpinM3GPgi7Hxfaq7NWyQfFZWPcM2NbkxrJaafdtrWxgW6/+zK3W1W/5/nv8v2TSQNs9GNmWMRa5rPOnQzL3VuQUmXE096p/c7Qshk+P7kZK9+ebHeZLza6w7eO0NJMwN2Z+PvguvZ6AnCcR447jX/j77mo4CrUA+K6Y1zBcc8fAAAA//8VqNHpAAAABklEQVQDALl5ldLp0/QGAAAAAElFTkSuQmCC"}, {"t": "سازمان ثبت اسناد و املاک کشور", "d": "خدمات ثبتی و استعلام اسناد و املاک", "u": "https://ssaa.ir/", "h": "ssaa.ir", "i": ""}, {"t": "دیوان عدالت اداری", "d": "شکایت و پیگیری پرونده در دیوان عدالت اداری", "u": "https://divanedalat.eadl.ir/", "h": "divanedalat.eadl.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABq0lEQVR4nKxSMVbCQBDdCRaQ8B45geKjpBBOAJwAOunEEwANLaGVQo6AJwBPQDiBcIM09CmSwHvorn/CRkN80ui+t5ndmT8/82fWEJnluq5KrGUVVpZlvqV9WTxl7kr7Yus4TpwAS9lYkmCIP65/JyCtM7bT6ZPHO+0TGdl0ib1QsFZEwo6isP4b5uoSASen70qpDkwN2yOi+RlBPp8vY/u8TNPsKEV9uO2kksGg7/N5t9t5o9FocyaBkw0jt8KxnPrhRt89pYSPapqpmCflR+twOHhxE/kArg2AQ+glvVm3xyT7fdhK/CB6ZOwpR0+BK4DCDqKNtOZKpWLX6z/6dwds85SjCVD+GGaOJtm8dMN63e59uVqt2nxmXxLDWuocYbATZcUNyuVocjweOxo0LpVK4ubmms9t/nAMZGtILSeEhA4PTqUrjIdeYNthGAzhc4vFYlNKiXcQLTnBNIsLmC0wD7AuiLYGgLaU79y82ygKHO64lrCYzWaojrxv+cpnDGMxhQnnkmVZNSnFMy5rbhCReg2CgP/IDwbjo6+ZA9vD+2A5W/ygYRhi+AkAAP//DwBb8AAAAAZJREFUAwDl4djhYQ/9CgAAAABJRU5ErkJggg=="}], "short": "قضایی", "hue": 90, "icon": "scale", "featured": false, "blurb": ""}, {"name": "مجوز و پروانه کسب", "items": [{"t": "درگاه ملی مجوزهای کشور", "d": "پرتال ملی مجوزهای کسب‌وکار", "u": "https://mojavez.ir/", "h": "mojavez.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACj0lEQVR4nJRSS0hUURj+z7l3Ht4ZLSn1aowOzPgqRSUDUyRbhGXhpoSojblz00qIIjAIQtpIZIvatCuaTRYaURP5gLRQKXKq8dFjRqZmJsqZ5nnvPed0ZpiBETTyg/9yz//4/v9858dtj7rzIYOOlx1G2CZEJpDBtrHjYYaYTonBHu7r2xYBwvQrY+hm5qy0PD4xMts9tpBN6HH0CD5zpJ9RvBcQu6OXYosThye0bBy1P+0sJUTwpMgyvt88cShJxBEDJlXA0AA/n81p+kYUtVNTnc+8aYLUp/XJsaF0IoCQk8hScaZQ0PwK6Cwb5GHJEr9hvnleRTabrfjarev7SDl7gTACLGBAOGWI/QwGwRjTI3PFDsYoV4lSoJSBqiqhS0cHbEZmlNITxOPxy0tu99W6+nrAvDiLlZUV4A0gyIlMJhO4P7lBLpWhrKxsuKamZlBLJJpFfpD2NzQI9xwOLy+2ZItdLhdIeXkwNzcHAb8fotEomMxmCIXWYXpyslyLJ/v5tLNC0c6iBkLVWsf9B87wn/ChxfeLugDvWFhYCLIsA58MvB4vFBQUQGNTEwQDAXg1M6P7+MH1jhLsRna7vSiRSBC9Xk+ej48Px8Ph3kq7Hf3w+WD04Sic6+sDySTB6upncDqd6SsdbGuFX5HIhSNdXXdRrrTB6ur8RFSV8e7iK9Lpk2e0b15AOh2AQZ8WVnUvAVcZEEJh5fW0bFlbi6PNtut7Y4uVYLTMFEVEXAemqgCE8sej6Zfnfm7JG1iLXtyUIAWPpaqdYXSb/9ZyI9zWue3akIRQ75YEKXyxWo2YGroFEb2lKi3hhFM54QW+auf/SZALvpZ4zVp5gDBcxzelgm/WVIVn2fnfBFvhLwAAAP//PgK2FwAAAAZJREFUAwBBkwqVEBXd3gAAAABJRU5ErkJggg=="}, {"t": "سامانه نوین اصناف", "d": "صدور و تمدید پروانه‌ی کسب", "u": "https://iranianasnaf.ir/", "h": "iranianasnaf.ir", "i": ""}, {"t": "سامانه بهین‌یاب", "d": "خدمات وزارت صنعت، معدن و تجارت", "u": "https://behinyab.ir/", "h": "behinyab.ir", "i": ""}, {"t": "سامانه جامع تجارت ایران", "d": "ثبت سفارش و مجوزهای تجارت خارجی", "u": "https://mardom.mimt.gov.ir/", "h": "mardom.mimt.gov.ir", "i": ""}, {"t": "سامانه جامع گمرکی", "d": "اظهار و پیگیری کالاهای گمرکی", "u": "https://epl.irica.gov.ir/", "h": "epl.irica.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADU0lEQVR4nEyTT2xUVRTGv/vnvTcznTImNIOkhNBaUq1hlE5rkLhodEECGo2iCRKDMTEaNySGWAqprbaIwZVuSI0hbIxIbGJI1I3x78JgrAJOgVjpIBDqRCG17cy8P/fe43kDC+5L7uK9871zvt/9riZACIAudhd3B9I/ZgAfdyz+ToESIt+01Y9KudHhHZ2vCyH7KbY/IkmO6FQ833X3Tiv0MQeEBNFkXfqaN+GsoCDXNNWTG9veGX5y/WtCs3jFnEXsjiKbeVd/C2iSalIKhPUwecT3VCxSLa+b2skHF23y6o6O1ce3rv1AeHqQVqJfEcaTyAaHEche3c7dnIBT3HnTtVql1frONT20Dgs0JTxVopX4DBJzCFn/EHK6VyzFF2QmHVdIkICaAbLjgCyX4aVsgsMP94ir9LXI+SVqJGdguLOvx5D37kPD/EJrMtt0mEIids8/WQ24cWqZT8R7D3Wxx2m0qV6EyW+IzASPPYaMLiE0P5cv3tjzzad/b9KtMQUvIvdZaQ07qRGObL0H+eAkAsXFloGxOOOxWD2AenK2p9585stT/0xeLwRdLQsMzSZSBPvO1RIcHdqAnD+NQPez+ByiaAJKjadi9nweAR6fG51tt1l/j0f0r7wfsEZSflVkr3dPbl4Lg88ZEHfi4jh6G55/EG1eCXVToSh6Ci9/d+30+kIhMc6SICmPb7irvRDa37/qCd6sdhROiDyLm2YWxozC90eQ1ZvRZBvOPU1vnP4zNdwRuwSSH+LtxcuL4VT/qomXdnXvhe9toQaLIxZnWuIyA6sgDHdi7w9zooyUGRlKhCPRyooWU492wrr3hZJbqGnOc0jGWuJADcil5FJbPX526cBP86/w0e6aAQ3xMVe1lil15k6aO5wS7X4f1eM/ONtjCLxh5LxBLMdz7t7gseVt319ttZqB+/B2tuZsvCKVdozf01zcx2NfgrX7GdgIh2SQGVT8/6LnbjxfGbyysXO7MmRSoVJSOJ7fgLrzQijGeEUjthdg3FvQ6gDTH0Ajmd1eXXzh409qB6mY3120BOkL8LxpXJgbweORakkyLRajEY1GPMLw9nPCUvFlFOmJL/b91Te/Ll+0sTnBtdKJW/da3rqi2hEtLIcLwwM30fgfAAD//86+woMAAAAGSURBVAMAy2mLdagwNvUAAAAASUVORK5CYII="}, {"t": "سامانه صدور پروانه‌های وزارت بهداشت", "d": "صدور پروانه‌های وزارت بهداشت", "u": "https://parvaneh.behdasht.gov.ir/", "h": "parvaneh.behdasht.gov.ir", "i": ""}, {"t": "سامانه نماد اعتماد الکترونیکی", "d": "گرفتن نماد اعتماد برای فروشگاه آنلاین", "u": "https://e-namad.ir/", "h": "e-namad.ir", "i": ""}], "short": "مجوز", "hue": 110, "icon": "badge", "featured": false, "blurb": ""}, {"name": "خدمات پستی", "items": [{"t": "سامانه رهگیری مرسولات پستی شرکت ملی پست", "d": "رهگیری مرسوله با کد رهگیری", "u": "https://tracking.post.ir/", "h": "tracking.post.ir", "i": ""}, {"t": "پرتال شرکت ملی پست جمهوری اسلامی ایران", "d": "خدمات و تعرفه‌های شرکت ملی پست", "u": "https://post.ir/", "h": "post.ir", "i": ""}, {"t": "سامانه یکپارچه نشانی و دریافت کد پستی", "d": "پیدا کردن کد پستی یک نشانی", "u": "https://gnaf2.post.ir/", "h": "gnaf2.post.ir", "i": ""}, {"t": "پست‌بار", "d": "ثبت آنلاین سفارش ارسال مرسوله", "u": "https://postbar.ir/", "h": "postbar.ir", "i": ""}, {"t": "سامانه رهگیری مرسولات تیپاکس", "d": "رهگیری مرسوله‌های تیپاکس", "u": "https://tipaxco.com/tracking", "h": "tipaxco.com", "i": ""}, {"t": "رهگیری مرسولات چاپار", "d": "رهگیری مرسوله‌های چاپار", "u": "https://chaparnet.com/tracking/", "h": "chaparnet.com", "i": ""}], "short": "پست", "hue": 130, "icon": "package", "featured": false, "blurb": ""}, {"name": "خدمات ورزشی", "items": [{"t": "فدراسیون پزشکی ورزشی", "d": "صدور آنلاین بیمه‌ی ورزشی", "u": "https://insurance.ifsm.ir/", "h": "insurance.ifsm.ir", "i": ""}, {"t": "پرتال وزارت ورزش و جوانان", "d": "اخبار و خدمات وزارت ورزش و جوانان", "u": "https://msy.gov.ir/", "h": "msy.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC1klEQVR4nFxTS08UQRCu6u6d2V2Wxxp2VziJEuNBg4HEi1E5GRDBR/CgHtToD/CkJ29KuJjgxYN/wRCj4WAkKiExiolHPai8ggiCLIvsMq+eLmv2geAknZ5U1/fVV193Kdj9IS9qb7/aUCz6tre87hNotHNpq64u483MPNmo5dQA6n9w9PM9n4eEkjcoY58EsNE1/rtf+a+Pq3m0M1fuAmcHclDaY8B5W9Kx1s+WZe9DKVYcTz2CwssCQK8NzQeysDW9WcWAqIHtXN9AHOmWyjZ11ogJxBUucw30llWWm5WdcWlft7JnL9SUiDK4ZaBHCHEHCOckqA6OhXUBMB8kecUTlrSqcjuAwgUp8LaV6z8XYZngeL0gGgEDoyjoCAEuR8klIQNCcrmII/3QrzRqfnDJowboqUR8CHC+SVjZ9AAfZQIyU0zYTZp+lpNjVsAaQ+KSRRkLopAxtMhdnxA+fOLchnhODwqB4hR3s2CFISdhG0kTKxPkV7RA8IkgBGnCcszI6KxNx4zhfZ5Xt0CkRkL8o43NcimtENsqF+NoVuAhk0Be6bKJivbzlg5IuEy8jgJTkYmzCFTnizDPCja4x/4KwReN0Ssi8AA2Kx6A6GOPSokQfjNxPfs2LwJDzyNWkFyRYByE6rdyfYcjwayA2GaWO6Ht+jMHQciLTPjG8WORuRk2+ZnQK2Pv+SFMxkW8x1AwjIS2RDXC7SkmLHDFIsAliSk5giiTOoQhK+mdJqIpd3lssvxgAmr/oCzs9VbCFzIFrpDxmzKpWgCxkclRpcJjHLtsQueBv7o2GmtIDbq+NwzO9AZuT0JjX5rb45oThcTe/ruMG6q+NhYBisDcc5fG7kO6qxF0k4LN12u7Z8H75oA755Z7jYkMR2y+oixX0IQwyY581IlDJchPLII/69Rm4Z+C7QnrStqZ5lbPTa4nErobkJTjBOO2be/xVt0lgFelHRj4CwAA///557jQAAAABklEQVQDANN+N3llMlHvAAAAAElFTkSuQmCC"}, {"t": "کمیته ملی المپیک جمهوری اسلامی ایران", "d": "اخبار و اطلاعات کمیته‌ی ملی المپیک", "u": "https://olympic.ir/", "h": "olympic.ir", "i": ""}, {"t": "فدراسیون فوتبال جمهوری اسلامی ایران", "d": "اخبار و اطلاعات فدراسیون فوتبال", "u": "https://ffiri.ir/", "h": "ffiri.ir", "i": ""}, {"t": "فدراسیون بدنسازی و پرورش اندام ایران", "d": "اطلاعات فدراسیون بدنسازی و پرورش اندام", "u": "https://irifb.ir/", "h": "irifb.ir", "i": ""}, {"t": "پایگاه خبری و نتایج زنده ورزش سه", "d": "اخبار و نتایج زنده‌ی ورزشی", "u": "https://varzesh3.com/", "h": "varzesh3.com", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADOklEQVR4nHxTa2hUVxCeOfe1uelmu2mzSePapNYSSIMUWi2CrfZBaqGlLdEWUgJ9UIq0P8VAkRLon5SklFL6J9RSFPogaOuPBm1ra9BgUDQqRGIwGtd1dXXNZl/37t17zxlnFxKMPxw4h3vuzDePb2Z0eIB0DxRiga5eQaCXgeDyCzLy9cAAqntt9KWPDYf7njB9uXj8jV+yWwZIF3rhTUm0E0E8CxCyELXR6U7A+4PUfqzb21dv6uXfBb9RFT+tvzL2DkLlK1R+RBZnU5V84pgsZf71pn84ODU1lWEIrXDw3G/vdaFS44CLM3Zi/48Rd/GbqH8qGgqSIPPny7mFtJe6eqtSlGYKUBwCUD+dO3l8torVqle8p3M9O/0QZfx0243HN8e9fU9FghkKUcmps2yIPhwLNz7aXO+45ZZFt7xJR+xuXt2eSCevztYcPNbTtQ6QtkfysfCazLW1Frkegfm9ENoXUspfEVFaptHVHLa1hlx2ft6XLSZBd0tre1JUHQigLBB6jaXCalMVLAIcYeB3vu9nNE1LG4axm4j267YNn7Q2ljo0uYdJCHPQD2oOMnroUkCYqi9Xm4IOX3/our6KwduUUu8GQdDGWRwImOKkaXUetOXCNFFvTmg7BI1B01zDvifvoDW+RC2D2B5LfB7hU+T3bc6gVq5CYIV6KYjm/5ufPDovPMMcAWGM7m3420+Z5nWeElsIsY1tc3xGhoaGvuV3tXU9Fa42XPHAJViThlCsNkgENOaB2LTFSvdW2g47/xReB3K1jzmq4KgH+vv725mP9zmTt4VSXquTDxhnk092jb/QhL8HiT73yMx0Ry8093aMgaH5tkOhz1j9Fzv6k8F9bGsIqU+uLeYTXEYFBbnLg1QV75D5NAn6yEL/1Zz/UMvk5Q3mTDZed7PQZEniPiFeW59ODL+WnPvSEXjRcIytTRMTheVdsLZWmFjYefbnZ9rmCrHtjl/3vCfNF7mlTaxOF9Ha9dbc2TPZUGQzuztdBa/IYEl27NrdoSn/iAW0ipUOIk0wF4PDw8P/V3eANm6sg7il4ejR4optXJIG9F2FapxBC8z+EZ7G8cHBwezy8pw44d5rfxcAAP//0tEQAAAAAAZJREFUAwDUzoFlmyXCNwAAAABJRU5ErkJggg=="}, {"t": "آنتن", "d": "پخش زنده‌ی مسابقات ورزشی", "u": "https://antenn.ir/", "h": "antenn.ir", "i": ""}], "short": "ورزش", "hue": 150, "icon": "trophy", "featured": false, "blurb": ""}, {"name": "خدمات بازنشستگان", "items": [{"t": "صندوق بازنشستگی کشوری", "d": "دریافت فیش حقوقی و حکم بازنشستگان کشوری", "u": "https://cspf.ir/", "h": "cspf.ir", "i": ""}, {"t": "سازمان بازنشستگی نیروهای مسلح", "d": "خدمات بازنشستگان نیروهای مسلح", "u": "https://saba.esata.ir/", "h": "saba.esata.ir", "i": ""}, {"t": "سامانه خدمات غیرحضوری تامین اجتماعی", "d": "دریافت فیش، حکم و سابقه‌ی بیمه", "u": "https://eservices.tamin.ir/", "h": "eservices.tamin.ir", "i": ""}, {"t": "صندوق بیمه اجتماعی کشاورزان، روستاییان و عشایر", "d": "خدمات بیمه‌ی اجتماعی روستاییان و عشایر", "u": "https://roostaa.ir/", "h": "roostaa.ir", "i": ""}, {"t": "کانون عالی کارگران بازنشسته و مستمری‌بگیران", "d": "اطلاعات کانون عالی کارگران بازنشسته", "u": "https://kanoontamin.ir/", "h": "kanoontamin.ir", "i": ""}], "short": "بازنشستگی", "hue": 170, "icon": "users", "featured": false, "blurb": ""}, {"name": "بیمه و تامین اجتماعی", "items": [{"t": "پرتال سازمان تامین اجتماعی", "d": "اخبار و خدمات سازمان تامین اجتماعی", "u": "https://tamin.ir/", "h": "tamin.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADC0lEQVR4nFxTW2hUVxTdj3PunTvORPoiJoZ+lPanlUwTSqWMllJK+9EXLbVtkEJRKQSpVEhqHxQCfWBTmhbiW1DED0FR9ENBRP0yKBGNEGN8IIoQjaKSuWYmcx9nu0cnajxwuYezX2vtvZeBmQfrfwle7ZpvPf5dACZgKv41HO27oO9Us9W/B4cex/Y8MuZaf15hfG8AkIrq8jkGwfFcofsrtbmHPj30dEV8YGj9viVPs9agyX7qkvKOeyXpzGRgtvVxO3LwNqTVDaUwXAWX+kv14m46AWTndX3I1t+sqZ4RSf9xiVxjxqIIVLTsICG2E5vlahtOq9Ul5bP/DtbiGGAR5wof97Cf2wgSX05c9Dej7WDCDgE3iYgthLQM0cUuif9Dsu+RsSv9xrfGohvHTmFQ+PFNy/4JzbwlLJf+yGcbDiqy23EFOsSkTOxNUVJ5njx/r7K8HFemltogu03957uKvEQG3Fxx0f7w9F9L8372axDXHJZvvj81uvqKNbTLYPL/5Nm+M9Wq+wiB3rW+nRfeHfsAAYfiLL7ApnHhKwjuXDQ+MOI3LVgtIEct52ymqfiNVtkHwkPenAU/EPFVgPRFpdQcja7dbRuLDSgyZhSWNpLk8SZgigTXtXFzEc0ypXMDCYcUwZ2Mjw7ctCtKbXCGkVgHslhfdgrgIQRZLJDqeOhlvTdrwoz6NXkmeVbRtIm4dQDfWUL5IlK0lIi7jmg/aWj7ZX3ikm0KqEpmVqfCUnQYaZlY73n2ct1aYDCJ3clc23MH9P6GKSe3OBl/bdw0+oZssJLBFcWlmwC5RZtZwzinTsuCc+dB0j3G8zcjmXaReIXuwpFHixQUuj4znNmksP00jdYq18NK750U+Y52aZRAp0C2U3mfh6iyJBzuG6gv0kNNJOMD52h2+y40psAm+606cuhKv3GVr7DHvWSCRZDGW8Pk7pfRcP/FaWHhTDH11MQC+dd/6lYh9SrkCcWfAeLIpfHyyTO925/2fSLBE6LSk2ntXmiR/9SXCYkmV90b6R+pB86Q830AAAD//8b/3eMAAAAGSURBVAMAIuBSGmBUGtcAAAAASUVORK5CYII="}, {"t": "استعلام سوابق بیمه و اعتبار دفترچه تامین اجتماعی", "d": "استعلام سابقه‌ی بیمه و اعتبار دفترچه", "u": "https://eservices.tamin.ir/view/#/inquiry-insurance", "h": "eservices.tamin.ir", "i": ""}, {"t": "سازمان بیمه سلامت ایران", "d": "خدمات بیمه سلامت و استعلام دفترچه", "u": "https://bimehsalamat.ir/", "h": "bimehsalamat.ir", "i": ""}, {"t": "بیمه مرکزی جمهوری اسلامی ایران", "d": "استعلام بیمه‌نامه‌ها و خدمات بیمه مرکزی", "u": "https://centinsur.ir/", "h": "centinsur.ir", "i": ""}], "short": "بیمه", "hue": 190, "icon": "shield", "featured": false, "blurb": ""}, {"name": "سامانه‌های دولتی و هویتی", "items": [{"t": "پنجره ملی خدمات دولت هوشمند", "d": "درگاه خدمات الکترونیک دولت", "u": "https://my.gov.ir/", "h": "my.gov.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABb0lEQVR4nKTSTStEURzH8ePOoJBnxQJD2IkF2VjgTaDImrdgYesF2JDs1ciKxZQUC8okpawQG6lJagxjjBm+/+Z3ud2wcerTPd1z7v/hnOu5f45oYF6GD80r0IM0yuHhBoXQvq8AwZe1yGAMo1pL4ErB8i6U1R/tmMMljpT9BKeYwjD6UEQcOafSnMrdVEVDWrQ2ulCnjyJKMoIVVAUDLOMeKXRqHlWgtPacay2hIAt+gAGMY0M9P4Tae9HzCdWIYReTqLEAgyrRDqlNpTq9M6/ue3iq4gwtaPWUwW4gr+wxbS4oQFbV+FebVVtveLcAh3hEL/bUX6M2Op2DJZhAP/bRjWvceTqwNcxgW70uqfSCDrYZqzhA0pVuat2q8PtNqv9b7GBRrVhVz5jV2dizQS3EgyftD/sL6zHtSlfrDyt3Hsc6l4y/EAkFsH7tb+vABSr10VagnVTwg3AF4dGkbLnfNpT98d5TVqd58aeNnwAAAP//UPHc8gAAAAZJREFUAwCDKl5XrWMFAAAAAABJRU5ErkJggg=="}, {"t": "سامانه ثبت نام و پیگیری کارت هوشمند ملی", "d": "ثبت‌نام و پیگیری کارت هوشمند ملی", "u": "https://ncr.ir/", "h": "ncr.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABo0lEQVR4nGzTzStEURgG8HfGMD5S43NJvktIhBIpTU2aBQspOztZsVJS/gA7W7JgoVhhdqwQJSksfKTYyLdiwWQw43k7zx3HbW79ujNnzj3nPc99xyf/Lw8k+LkFuuAD3mEhxRzxpni4AcJwBkUwCEdQCh2c43Ev4DzcCRPQDjnwAiVwAn0wApP2InYFfpiGQyiDB8iFLz6gR9mHHghyzOvlIvqlm2e9gHSrsig/30AbRGDIPoJznnLrIb817izwA5mwBxUci/vkL9E7lvsIjdZ4jPc6LpAB985mWkGcu21AALK4azM8M0i9NNx5GIB1Z4E06yifnFwNazBuZRBmiHNiXvMMj5RIvk/rKgY92hQMc+xSTPpvYoKOuivwWHedUM8MNI9rWOT5j5lT8nJXYLdpgPdX63fdsBCexGRXqaXmQS3LPhcTopYa5G6aR42YPtB52WKarBVCumIICjg5X0z6V5ys7azNox15KqbVNY9Rzl3SkmdhG7ZYRZWY1FfFNNcuQxuDA/jm94g7A/3T9MIyNMEmzxzjvR924FbMa9d+WPkFAAD//6PvVeAAAAAGSURBVAMAkgRkJnW+wcMAAAAASUVORK5CYII="}, {"t": "درگاه خدمات الکترونیک انتظامی", "d": "خدمات الکترونیک پلیس (پلیس +۱۰)", "u": "https://epolice.ir/", "h": "epolice.ir", "i": ""}, {"t": "سامانه خدمات الکترونیک نظام وظیفه", "d": "استعلام وضعیت نظام وظیفه و معافیت", "u": "https://vazifeh.police.ir/", "h": "vazifeh.police.ir", "i": ""}, {"t": "سامانه سدف", "d": "ثبت درخواست فرآورده‌های نفتی و گاز مایع", "u": "https://newtejaratasan.niopdc.ir/", "h": "newtejaratasan.niopdc.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACcElEQVR4nExSS0hUYRQ+/+Pecbx3HLNhRjIqiCQUpmhRtEgsaBHt3JiICzOoda2EFu2iiMBFtClBJKx1hKi4MBl6DQghFOKIj2DScsach/53/kfnv1PRgf+ee+9/zvedx8e11oQQExoAaK0odyrruWjqMHEdYv/hPdQN3yj8Z0Zrxp3Sem77/r1gbYUSaoyGMOmf2YQQ3B5Caa2yu/1qjC9/3R15IJW00KZ+SBgYJhDLSRAfKN2aGCfzGRrx9cxUOTNHGMcqjbER4dNwxIYQn1ga8EtbTu4T95plRGhRqcOTOr/tlHJSZyOgDAVtVk71L3UdbfAcUVPnj52LakSh7E9RtipuQqeVcVzbk/ASk+pyg+CuKy/4HmcEGCgEo2AbwDlYNg2cQ2a+dGMw/zETpHzxblZ3HJFPn1Tv3M5vbgrGCDYStgEkqEkkzWbLvT0/r/V7C1mlSXA6XZt7G02n2Z4gG6vB68mU73MkwRyKaY5jRp/tDg41PXyUfDOVIDgax+nsZKNjrRMvk40enZkuOQ7FwrB6Njx8d+RxYW210tvXIES1UJCfF9n4GFwfcl23aogCVZ2dFUrpdDqqcY0TL3709UNvzz7Q2uJi5OIlyG+wM2f58ooIBHzb0CeO7y9kY0tL8CXnH2pr5PE46zhZLP6C9vZoVxc70FTOiciH97olIZMJc7DF3ymaVFuJUNfhcZwPv3I1Fkj4nlc3b8VxvsWd6GoOpqb3BgZinq+bm2PFgv98dKe7O5psdZQEoqSkzApESoUlui77qxzrA6lRsuGnxjZwHkSiV1YUqJp6nF2uAlwvDhCsYO1acWF24Yb8BgAA//8a8XrXAAAABklEQVQDAAAjRojJKXBGAAAAAElFTkSuQmCC"}, {"t": "سامانه نهضت ملی مسکن", "d": "ثبت‌نام و پیگیری نهضت ملی مسکن", "u": "https://saman.mrud.ir/", "h": "saman.mrud.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACuUlEQVR4nHRTS0hVYRCemf/c6/V1fUYPlXymBVYQhItAoW27gmoRmQWlpauIoI37FlHGTQuyNmHUroVbIYIWlZRikGIgFj18XrX7OOefaf6jCzE7cPjn9X0z/8z8HmzzNbU/qA4Am0VkQZjQIBeDJxOTj7umt8biZqWtrdebbS41nMmJUZY7AeRw6GD4FFAm4RWaVOXYgh0Z6Q3+Iag/P1AHyK1g4ZsAjFqTznoQG1JwhHw6HfJ4fAQMVDDg6+knVyadjUJwe6JFgPs1Y1wQGrDYX0avIAcEatVdx0SxwkJYBpJ6ZCxEkUTtuYFjIUGYWbBP5YnQQLA61deT2XrX9w8v+1rwEiNEtOyPRHyvsSPRSIC2S/27gPi5ni3I60TbfgITKHAUUF6qVmYtdZNmP6WeURFvBRirxJO5/+FZaF7BexAkrRN6p7iTrgdV+o8TS4E4Vibjgo1NsR5W2xxEkK2zRQ27+FIQE0fCMVe5M+jIMYmi7UEoRhRHCJ4lDn0AWWvBh1CgSkdgWS8q2lT1O4JJVcqDqP9D5QyytLrgNPmaFR1B4OUZDqsi2+Z0E7HftbJylb+SZh3Su+zLTeK8XuGNGs80dCRqs9G8rO6Fm4ZvBf2ai/f3CuBZ1d9GVuSXNnO/krwg8b1BFf74+aAzlgHNWiYB3iy2JqYNTml1aQxSUWPNDQXv1h3oz8SoWgQDD+CRWRh7lSw/eGJGEA8Uxcxwll3D8GpgJabVVeB6cyrUdglEbmvMswzLcdWHvzztHN9YZcH6C33lRZGcpdRiCWZzF64JynV1Fm1MMKnyHYn7d91bmK0pLZka7NZxo9DGk5CpwZ7fPxfXvFTuXJOqswoYd6Nf//GzbuAMrUWbpnbEIy7WYcJpbV6UnSX5QTKwq+weFPItYjyEgMaS/aC5omxxNQ6VdjPmLwAAAP//UMT9LwAAAAZJREFUAwAErTnlNkSpRwAAAABJRU5ErkJggg=="}, {"t": "سامانه ملی املاک و اسکان کشور", "d": "خدمات سامانه‌ی ملی املاک و اسکان", "u": "https://amlak.mrud.ir/", "h": "amlak.mrud.ir", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACuUlEQVR4nHRTS0hVYRCemf/c6/V1fUYPlXymBVYQhItAoW27gmoRmQWlpauIoI37FlHGTQuyNmHUroVbIYIWlZRikGIgFj18XrX7OOefaf6jCzE7cPjn9X0z/8z8HmzzNbU/qA4Am0VkQZjQIBeDJxOTj7umt8biZqWtrdebbS41nMmJUZY7AeRw6GD4FFAm4RWaVOXYgh0Z6Q3+Iag/P1AHyK1g4ZsAjFqTznoQG1JwhHw6HfJ4fAQMVDDg6+knVyadjUJwe6JFgPs1Y1wQGrDYX0avIAcEatVdx0SxwkJYBpJ6ZCxEkUTtuYFjIUGYWbBP5YnQQLA61deT2XrX9w8v+1rwEiNEtOyPRHyvsSPRSIC2S/27gPi5ni3I60TbfgITKHAUUF6qVmYtdZNmP6WeURFvBRirxJO5/+FZaF7BexAkrRN6p7iTrgdV+o8TS4E4Vibjgo1NsR5W2xxEkK2zRQ27+FIQE0fCMVe5M+jIMYmi7UEoRhRHCJ4lDn0AWWvBh1CgSkdgWS8q2lT1O4JJVcqDqP9D5QyytLrgNPmaFR1B4OUZDqsi2+Z0E7HftbJylb+SZh3Su+zLTeK8XuGNGs80dCRqs9G8rO6Fm4ZvBf2ai/f3CuBZ1d9GVuSXNnO/krwg8b1BFf74+aAzlgHNWiYB3iy2JqYNTml1aQxSUWPNDQXv1h3oz8SoWgQDD+CRWRh7lSw/eGJGEA8Uxcxwll3D8GpgJabVVeB6cyrUdglEbmvMswzLcdWHvzztHN9YZcH6C33lRZGcpdRiCWZzF64JynV1Fm1MMKnyHYn7d91bmK0pLZka7NZxo9DGk5CpwZ7fPxfXvFTuXJOqswoYd6Nf//GzbuAMrUWbpnbEIy7WYcJpbV6UnSX5QTKwq+weFPItYjyEgMaS/aC5omxxNQ6VdjPmLwAAAP//UMT9LwAAAAZJREFUAwAErTnlNkSpRwAAAABJRU5ErkJggg=="}], "short": "هویت و دولت", "hue": 210, "icon": "idcard", "featured": false, "blurb": ""}, {"name": "سایت‌های کاربردی و ابزارها", "items": [{"t": "iLovePDF", "d": "ادغام، فشرده‌سازی و تبدیل PDF", "u": "https://www.ilovepdf.com/", "h": "ilovepdf.com", "i": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACcklEQVR4nIySz0tUURTHzzn3vadjOUMRSD/MpBptMsf+gBbRpo0uo1Vktc1NWIuwMGhRFEEbF0JFm6BaBCYtgpCgoDaVM4WaBTKFwQhiib735t17OvfNjExp4Rnm/brnfO75nvslkGAAhDXCfq9dWyvPsRf5yjOdmSOK4CQA7UA2X0po7uD7idd2vZBObw+nphok77NASO6mCoiJha595+vQuebJkmYGBxFCNmGg9RksLoxRy7YXXrotMf/g0dE9YZivheC3bNthIvc5MpMGKAGiAmbtInohwAJE0Wx9Q0P7lrv34efo6Mxs/4WeduAcS6KFiATV60mRzxwJ0K10pUIWImJKKZUKokiXXI+T5/pbePHXyOQg9kjSB9sJIeEu2dFgDJQ5SaHA2b7LI5eMMbYrDgIlSZy6OLCz6cqlkTxANu7AsBkHcg4ZozXatoRjGWB58V9+ggXXRZIdtOtBamCwGRznydehoRP4PZs5CEgvFcLGSGRIieIVSnyMFst1nVmAxkaZsjboelEyDLzi2zfX41MQSK+r1LAUWe12FgoqEISyMuP7wDoyMhdMEtF8ED5OJJK9WGlWfNDe7Sl1ox4pvWRYS9dWEZUdZCdKpp5ISZf2pG75HZsut94b87HqMAvJdbQ2bVaJq66i0yUTaygrEOkJIidgzvmlqK81PzFW9VGtTVfMUejM9HkO3dQm9obeIEZZ1ubpEgWn9r6bLtbmUo0lTcX71Dz+6XagzVnRC7bYN+bZ3I+547b4ocxnlZX/Dpt0THYudO0fdgC7YdE/sHX6z53/C6geXzGTaVpGvbvl4+Sr6pxWJcI64l/FNn4DAAD//wmRXAYAAAAGSURBVAMAkEQiE1+9qCgAAAAASUVORK5CYII="}, {"t": "Smallpdf", "d": "ویرایش و تبدیل PDF", "u": "https://smallpdf.com/", "h": "smallpdf.com", "i": ""}, {"t": "TinyPNG", "d": "کم‌حجم کردن عکس بدون افت کیفیت", "u": "https://tinypng.com/", "h": "tinypng.com", "i": ""}, {"t": "Remove.bg", "d": "حذف خودکار پس‌زمینه‌ی عکس", "u": "https://www.remove.bg/", "h": "remove.bg", "i": ""}, {"t": "CloudConvert", "d": "تبدیل فرمت فایل، ویدیو، صدا و سند", "u": "https://cloudconvert.com/", "h": "cloudconvert.com", "i": ""}, {"t": "123apps", "d": "ابزارهای آنلاین ویدیو، صدا و ویرایش", "u": "https://123apps.com/", "h": "123apps.com", "i": ""}, {"t": "Photopea", "d": "ویرایش عکس شبیه فتوشاپ، رایگان", "u": "https://www.photopea.com/", "h": "photopea.com", "i": ""}, {"t": "Speedtest", "d": "تست سرعت اینترنت", "u": "https://speedtest.net/", "h": "speedtest.net", "i": ""}, {"t": "Internet Archive", "d": "آرشیو وب و کتابخانه‌ی دیجیتال", "u": "https://archive.org/", "h": "archive.org", "i": ""}, {"t": "ویراستیار", "d": "ویرایش و غلط‌گیری متن فارسی", "u": "https://virastyar.ir/", "h": "virastyar.ir", "i": ""}, {"t": "ساعت و تقویم رسمی ایران", "d": "تقویم و ساعت رسمی ایران", "u": "https://time.ir/", "h": "time.ir", "i": ""}, {"t": "شبکه اطلاع‌رسانی طلا، سکه و ارز", "d": "قیمت لحظه‌ای طلا، سکه و ارز", "u": "https://tgju.org/", "h": "tgju.org", "i": ""}], "short": "ابزارها", "hue": 230, "icon": "wrench", "featured": false, "blurb": ""}];
+
+const ICONS = {
+  message:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  wifi:'<path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/>',
+  grad:'<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  book:'<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+  bank:'<line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
+  car:'<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>',
+  receipt:'<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>',
+  wallet:'<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
+  scale:'<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  badge:'<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
+  package:'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="m7.5 4.27 9 5.15"/>',
+  trophy:'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  idcard:'<path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/>',
+  wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>',
+  heart:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  out:'<path d="M17 7H7v10"/><path d="M17 17 7 7"/>',
+  x:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  grid:'<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+  lock:'<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  sparkle:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/>',
+  monitor:'<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>'
+};
+const svg = (n, s = 20, w = 1.8) =>
+  `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+
+const $ = (s, r = document) => r.querySelector(s);
+const fa = n => Number(n).toLocaleString('fa-IR');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s).toLowerCase()
+  .replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/[\u200c\u200f]/g,' ')
+  .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+  .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+  .replace(/\s+/g,' ').trim();
+const initial = t => { const c = [...t.trim()][0] || '•'; return c.toUpperCase(); };
+
+/* ---------- data ---------- */
+const ITEMS = [];
+DATA.forEach((c, ci) => c.items.forEach(it => ITEMS.push({
+  ...it, id: ITEMS.length, ci,
+  hay: norm([it.t, it.d, it.h].join(' '))
+})));
+
+const state = { cat: 'all', q: '', favs: new Set() };
+
+/* ---------- static bits ---------- */
+$('#brandMark').innerHTML = svg('monitor', 22, 2);
+$('#miniIcon').innerHTML = svg('search', 18);
+$('#heroIcon').innerHTML = svg('search', 22);
+$('#favIcon').innerHTML = svg('heart', 18);
+$('#favClose').innerHTML = svg('x', 18);
+$('#lead').textContent = `${fa(ITEMS.length)} سامانه در ${fa(DATA.length)} دسته. زیر هر کدام نوشته‌ایم برای چه کاری است؛ جستجو کن و مستقیم وارد شو.`;
+$('#footCount').textContent = `${fa(ITEMS.length)} سامانه در ${fa(DATA.length)} دسته`;
+
+const POP = [
+  ['tracking.post.ir','رهگیری پست'],['sad24.ir','چک صیادی'],['hemayat.mcls.gov.ir','دهک‌بندی'],['ve.cbi.ir','وام ازدواج'],
+  ['my.tax.gov.ir','مای‌تکس'],['vazifeh.police.ir','نظام وظیفه'],['sakha.epolice.ir','خلافی خودرو'],['ilovepdf.com','ابزار PDF']
+];
+$('#popular').innerHTML = POP.map(([h, label]) => {
+  const it = ITEMS.find(x => x.h === h); if (!it) return '';
+  const c = DATA[it.ci];
+  return `<a class="q" style="--h:${c.hue}" href="${esc(it.u)}" target="_blank" rel="noopener noreferrer"><span class="ico">${svg(c.icon, 22, 1.8)}</span><span>${label}</span></a>`;
+}).join('');
+
+/* ---------- cards ---------- */
+function card(it, showCat) {
+  const c = DATA[it.ci];
+  const on = state.favs.has(it.id);
+  const logo = it.i ? `<img src="${it.i}" alt="" width="26" height="26" loading="lazy">` : esc(initial(it.t));
+  return `<article class="card" style="--h:${c.hue}">
+    <div class="c-top">
+      <span class="logo">${logo}</span>
+      <div class="c-txt">
+        ${showCat ? `<span class="tag">${esc(c.name)}</span>` : ''}
+        <h3><a href="${esc(it.u)}" target="_blank" rel="noopener noreferrer">${esc(it.t)}</a></h3>
+        ${it.d ? `<p>${esc(it.d)}</p>` : ''}
+      </div>
+      <span class="ext">${svg('out', 18)}</span>
+    </div>
+    <div class="c-bot">
+      <span class="host" dir="ltr">${esc(it.h)}</span>
+      <button class="fav" data-fav="${it.id}" aria-pressed="${on}" aria-label="${on ? 'حذف از' : 'افزودن به'} علاقه‌مندی‌ها: ${esc(it.t)}">${svg('heart', 18)}</button>
+    </div>
+  </article>`;
+}
+
+/* ---------- filtering + render ---------- */
+const tokensOf = () => { const q = norm(state.q); return q ? q.split(' ') : []; };
+const matchQ = (it, tk) => tk.every(t => it.hay.includes(t));
+
+function renderSide() {
+  const tk = tokensOf();
+  const per = DATA.map((_, ci) => ITEMS.filter(it => it.ci === ci && matchQ(it, tk)).length);
+  const total = per.reduce((a, b) => a + b, 0);
+  const row = (key, icon, name, n, hue, dim) =>
+    `<button class="cat${dim ? ' dim' : ''}" style="--h:${hue}" data-cat="${key}" aria-current="${state.cat === String(key)}">
+       <span class="ico">${svg(icon, 18)}</span><span class="nm">${esc(name)}</span><span class="n">${fa(n)}</span></button>`;
+  $('#cats').innerHTML = row('all', 'grid', 'همه‌ی سامانه‌ها', total, 250, false) +
+    DATA.map((c, i) => row(i, c.icon, c.name, per[i], c.hue, tk.length && per[i] === 0)).join('');
+}
+
+function render() {
+  const tk = tokensOf();
+  const out = $('#results');
+  const inCat = it => state.cat === 'all' || it.ci === +state.cat;
+  const list = ITEMS.filter(it => inCat(it) && matchQ(it, tk));
+  renderSide();
+
+  if (!list.length) {
+    out.innerHTML = `<div class="empty"><h3>${tk.length ? `چیزی برای «${esc(state.q.trim())}» پیدا نشد` : 'این دسته خالی است'}</h3>
+      <p>عبارت کوتاه‌تری بنویس یا یک دسته‌ی دیگر را باز کن.</p>
+      <button class="link-btn" data-reset>پاک کردن جستجو و فیلتر</button></div>`;
+    return;
+  }
+
+  if (state.cat === 'all' && !tk.length) {
+    out.innerHTML = DATA.map((c, ci) => `
+      <section class="group${c.featured ? ' feat' : ''}" style="--h:${c.hue}" aria-labelledby="g${ci}">
+        <div class="g-head"><span class="ico">${svg(c.icon, 22)}</span>
+          <div><h2 id="g${ci}">${esc(c.name)}${c.featured ? '<span class="badge">ویژه</span>' : ''}</h2>${c.blurb ? `<p class="sub">${esc(c.blurb)}</p>` : ''}</div>
+          <span class="n">${fa(c.items.length)} سامانه</span></div>
+        <div class="grid">${list.filter(it => it.ci === ci).map(it => card(it, false)).join('')}</div>
+      </section>`).join('');
+    return;
+  }
+
+  const title = state.cat !== 'all' ? DATA[+state.cat].name : 'نتایج جستجو';
+  const sub = tk.length ? ` برای «${esc(state.q.trim())}»` : '';
+  out.innerHTML = `<div class="r-head"><h2>${esc(title)}</h2><span class="cnt">${fa(list.length)} سامانه${sub}</span>
+      <button class="link-btn" data-reset>پاک کردن فیلتر</button></div>
+    <div class="grid">${list.map(it => card(it, state.cat === 'all')).join('')}</div>`;
+}
+
+/* ---------- search wiring ---------- */
+const q1 = $('#q1'), q2 = $('#q2'), topbar = $('#top');
+let jumped = false;
+function setQ(v, from) {
+  state.q = v;
+  if (from !== q1) q1.value = v;
+  if (from !== q2) q2.value = v;
+  render();
+  if (v.trim() && !jumped) {
+    jumped = true;
+    const r = $('#results').getBoundingClientRect();
+    if (r.top > window.innerHeight * 0.55) window.scrollTo({ top: window.scrollY + r.top - 88, behavior: 'smooth' });
+  }
+  if (!v.trim()) jumped = false;
+}
+[q1, q2].forEach(el => {
+  el.addEventListener('input', () => setQ(el.value, el));
+  el.addEventListener('keydown', e => { if (e.key === 'Escape' && el.value) { setQ('', null); } });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName) && !drawer.classList.contains('on')) {
+    e.preventDefault();
+    (topbar.classList.contains('show-search') ? q2 : q1).focus();
+  }
+});
+new IntersectionObserver(([e]) => topbar.classList.toggle('show-search', !e.isIntersecting),
+  { rootMargin: '-70px 0px 0px 0px' }).observe($('#heroSearch'));
+
+/* ---------- category + reset + favorites clicks ---------- */
+document.addEventListener('click', e => {
+  const catBtn = e.target.closest('[data-cat]');
+  if (catBtn) {
+    state.cat = catBtn.dataset.cat;
+    render();
+    const r = $('#results').getBoundingClientRect();
+    if (r.top < 0 || r.top > window.innerHeight * 0.5) window.scrollTo({ top: window.scrollY + r.top - 88, behavior: 'smooth' });
+    return;
+  }
+  if (e.target.closest('[data-reset]')) { state.cat = 'all'; setQ('', null); return; }
+  const fav = e.target.closest('[data-fav]');
+  if (fav) { toggleFav(+fav.dataset.fav); }
+});
+
+/* ---------- favorites ---------- */
+const drawer = $('#drawer'), scrim = $('#scrim'), toastEl = $('#toast');
+let toastT;
+function toast(msg) {
+  toastEl.textContent = msg; toastEl.classList.add('on');
+  clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('on'), 1800);
+}
+function toggleFav(id) {
+  const it = ITEMS[id];
+  if (state.favs.has(id)) { state.favs.delete(id); toast('از علاقه‌مندی‌ها حذف شد'); }
+  else { state.favs.add(id); toast('به علاقه‌مندی‌ها اضافه شد'); }
+  document.querySelectorAll(`[data-fav="${id}"]`).forEach(b => {
+    const on = state.favs.has(id);
+    b.setAttribute('aria-pressed', on);
+    b.setAttribute('aria-label', `${on ? 'حذف از' : 'افزودن به'} علاقه‌مندی‌ها: ${it.t}`);
+  });
+  renderFavs();
+}
+function renderFavs() {
+  const n = state.favs.size, badge = $('#favCount');
+  badge.hidden = !n; badge.textContent = fa(n);
+  $('#favCopy').disabled = $('#favClear').disabled = !n;
+  const body = $('#dBody');
+  if (!n) {
+    body.innerHTML = `<div class="d-empty">${svg('heart', 40, 1.4)}<p>هنوز چیزی ذخیره نکرده‌ای.<br>روی قلب هر سامانه بزن تا اینجا نگه‌اش داریم.</p></div>`;
+    return;
+  }
+  body.innerHTML = [...state.favs].map(id => {
+    const it = ITEMS[id], c = DATA[it.ci];
+    const logo = it.i ? `<img src="${it.i}" alt="" width="20" height="20">` : esc(initial(it.t));
+    return `<div class="d-item" style="--h:${c.hue}"><span class="logo">${logo}</span>
+      <a href="${esc(it.u)}" target="_blank" rel="noopener noreferrer">${esc(it.t)}<small>${esc(it.h)}</small></a>
+      <button class="fav" data-fav="${id}" aria-pressed="true" aria-label="حذف از علاقه‌مندی‌ها: ${esc(it.t)}">${svg('heart', 18)}</button></div>`;
+  }).join('');
+}
+let lastFocus;
+function openDrawer() {
+  lastFocus = document.activeElement;
+  drawer.removeAttribute('inert'); drawer.classList.add('on'); scrim.classList.add('on');
+  $('#favClose').focus();
+}
+function closeDrawer() {
+  drawer.classList.remove('on'); scrim.classList.remove('on'); drawer.setAttribute('inert', '');
+  if (lastFocus) lastFocus.focus();
+}
+$('#favOpen').addEventListener('click', openDrawer);
+$('#favClose').addEventListener('click', closeDrawer);
+scrim.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('on')) closeDrawer(); });
+$('#favClear').addEventListener('click', () => {
+  const ids = [...state.favs]; state.favs.clear();
+  ids.forEach(id => document.querySelectorAll(`.grid [data-fav="${id}"]`).forEach(b => b.setAttribute('aria-pressed', 'false')));
+  renderFavs();
+});
+$('#favCopy').addEventListener('click', async () => {
+  const text = [...state.favs].map(id => `${ITEMS[id].t}\n${ITEMS[id].u}`).join('\n\n');
+  try { await navigator.clipboard.writeText(text); toast('لینک‌ها کپی شد'); }
+  catch (_) { toast('کپی انجام نشد؛ مرورگر اجازه نداد'); }
+});
+
+render();
+renderFavs();
+</script>
+</body>
+</html>
